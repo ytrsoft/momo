@@ -30,5 +30,32 @@ frida-ps -U
         
 > 注入脚本
 ```bash
-frida -U -p [进程ID] -l [脚本文件] --no-pause
+frida -U -p 4495 -l HTTP.js # 4495 进程ID 脚本文件
 ```
+> 连接MuMu模拟器
+
+```bash
+adb shell
+```
+
+> 连接设备
+
+```bash
+  adb -s 127.0.0.1:7555 shell
+```
+
+> 设置虚拟位置
+
+```bash
+  adb shell am startservice \
+  -e lat 28.187766 \
+  -e lon 113.004252 \
+  com.android.shell/.MockLocationService
+```
+
+> 进入Root权限
+
+``bash
+su - # whoami
+``
+
