@@ -16,6 +16,7 @@ getprop ro.product.cpu.abi
 ```
 
 > 3、安装 [Frida Server](https://github.com/frida/frida/releases)
+    
     1）解压 frida-server-16.5.6-android-x86_64.xz
     2）adb push frida-server /data/local/tmp/ 
     3) 设置权限chmod 777 frida-server-16.5.6-android-x86_64 最高权限
