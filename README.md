@@ -58,4 +58,8 @@ adb shell
 ``bash
 su - # whoami
 ``
+> 连接mumu模拟器
+```bash
+adb connect 127.0.0.1:7555
+```
 
