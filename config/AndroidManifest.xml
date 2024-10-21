@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" package="com.immomo.momo" platformBuildVersionCode="33" platformBuildVersionName="13">
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="android.permission.SENSOR_INFO"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="com.vivo.abe.permission.launcher.notification.num"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <queries>
+        <package android:name="com.heytap.market"/>
+        <package android:name="com.tencent.mm"/>
+        <package android:name="com.tencent.mobileqq"/>
+        <package android:name="com.eg.android.AlipayGphone"/>
+        <package android:name="com.qzone"/>
+        <package android:name="com.sina.weibo"/>
+        <package android:name="com.ss.android.ugc.aweme"/>
+        <package android:name="com.smile.gifmaker"/>
+        <package android:name="com.jingdong.app.mall"/>
+        <package android:name="com.wangyin.payment"/>
+        <package android:name="com.xunmeng.pinduoduo"/>
+        <package android:name="com.taobao.taobao"/>
+        <package android:name="com.tmall.wireless"/>
+        <package android:name="com.p1.mobile.putong"/>
+        <package android:name="com.sankuai.meituan"/>
+        <package android:name="com.baidu.BaiduMap"/>
+        <package android:name="com.autonavi.minimap"/>
+        <package android:name="com.google.android.apps.maps"/>
+        <package android:name="com.tencent.map"/>
+        <package android:name="com.UCMobile"/>
+        <package android:name="com.android.settings"/>
+        <package android:name="com.qihoo360.mobilesafe"/>
+        <package android:name="com.miui.securitycenter"/>
+        <package android:name="com.google.android.gms"/>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.immomo.vchat"/>
+        <package android:name="com.wemomo.matchmaker"/>
+        <package android:name="com.wemomo.game.bfsgly"/>
+        <package android:name="com.oppo.market"/>
+        <package android:name="com.tencent.tim"/>
+        <package android:name="com.tencent.minihd.qq"/>
+        <package android:name="com.xiaomi.xmsf"/>
+        <package android:name="com.huawei.hwid"/>
+        <package android:name="com.heytap.openid"/>
+        <package android:name="com.android.vending"/>
+        <package android:name="com.vivo.vms"/>
+        <package android:name="com.tencent.mtt"/>
+        <package android:name="cn.cyberIdentity.certification"/>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="tel"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="androidamap"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="taobao"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="tbopen"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="tmall"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="uclink"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="alipays"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="sinaweibo"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="weibo"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="taobaolite"/>
+        </intent>
+        <intent>
+            <action android:name="com.hihonor.push.action.BIND_PUSH_SERVICE"/>
+        </intent>
+        <package android:name="com.nearme.instant.platform"/>
+        <intent>
+            <action android:name="*"/>
+            <data android:scheme="tbopen"/>
+        </intent>
+        <package android:name="com.eg.android.AlipayGphoneRC"/>
+        <package android:name="hk.alipay.wallet"/>
+        <package android:name="com.jd.jrapp"/>
+        <intent>
+            <action android:name="*"/>
+            <data android:scheme="tbopen"/>
+        </intent>
+        <package android:name="com.android.creator"/>
+        <package android:name="com.zhuoyi.security.lite"/>
+        <package android:name="com.freeme.secureguard"/>
+        <package android:name="com.android.secureguard"/>
+        <package android:name="com.mdid.msa"/>
+        <package android:name="com.samsung.android.deviceidservice"/>
+        <package android:name="com.coolpad.deviceidsupport"/>
+        <package android:name="com.qiku.id"/>
+        <package android:name="com.heytap.htms"/>
+        <intent>
+            <action android:name="com.huawei.hms.core.aidlservice"/>
+        </intent>
+        <intent>
+            <action android:name="com.huawei.hms.core"/>
+        </intent>
+    </queries>
+    <permission android:name="com.immomo.momo.backtrace.warmed_up" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.immomo.momo.backtrace.warmed_up"/>
+    <uses-permission android:name="com.immomo.momo.manual.dump"/>
+    <permission android:name="com.immomo.momo.matrix.permission.PROCESS_SUPERVISOR" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.immomo.momo.matrix.permission.PROCESS_SUPERVISOR"/>
+    <permission android:name="com.immomo.momo.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.immomo.momo.permission.MIPUSH_RECEIVE"/>
+    <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+    <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <permission android:name="com.immomo.momo.permission.PROCESS_PUSH_MSG" android:protectionLevel="signature"/>
+    <permission android:name="com.immomo.momo.permission.PUSH_PROVIDER" android:protectionLevel="signature"/>
+    <permission android:name="com.immomo.momo.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.immomo.momo.permission.PROCESS_PUSH_MSG"/>
+    <uses-permission android:name="com.immomo.momo.permission.PUSH_PROVIDER"/>
+    <uses-permission android:name="com.hihonor.push.permission.READ_PUSH_NOTIFICATION_INFO"/>
+    <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS"/>
+    <uses-permission android:name="freemme.permission.msa"/>
+    <uses-permission android:name="freemme.permission.msa.SECURITY_ACCESS"/>
+    <uses-permission android:name="oplus.permission.settings.LAUNCH_FOR_EXPORT"/>
+    <uses-permission android:name="com.vivo.identifier.permission.OAID_STATE_DIALOG"/>
+    <application android:allowBackup="false" android:allowNativeHeapPointerTagging="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:hardwareAccelerated="@bool/config_hardwareAccelerated" android:icon="@mipmap/ic_logo" android:label="@string/app_name" android:largeHeap="@bool/config_largeHeap" android:name="com.immomo.momo.MomoApplication" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_logo_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:name="com.immomo.momo.setting.activity.DebugActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.immomo.momo.test.IMLoseTestActivity"/>
+        <activity android:name="com.immomo.momo.hepai.activity.HepaiPublishActivity" android:screenOrientation="portrait" android:theme="@style/transActivityThemeWithTrans" android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name="com.immomo.momo.hepai.activity.NewHepaiActivity" android:screenOrientation="portrait" android:theme="@style/transActivityThemeWithTrans"/>
+        <activity android:name="com.immomo.momo.hepai.activity.HepaiDemoActivity" android:theme="@style/FullScreenDialogWithAnim"/>
+        <activity android:name="com.immomo.momo.hepai.activity.HepaiActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.setting.roaming.RoamActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.forum.activity.team.TeamPublishActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.common.activity.UpgradeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:name="com.immomo.momo.test.isolatetest.IPSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.newaccount.sayhi.view.BatchSayHiActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.message.sayhi.activity.HiCardStackActivity" android:theme="@style/AppTheme.White"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.message.sayhi.activity.SayHiListActivity" android:theme="@style/AppTheme.White"/>
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="false"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="575cc4f767e58e175c000781"/>
+        <meta-data android:name="UMENG_MESSAGE_SECRET" android:value="30fa19a34d611eccb17e90b7118200ce"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="f0316c789154ffe6d796c07268ea0bb7"/>
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="YF9aplVex9MtgMs5Cj1wq3OK"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAP_btl3Ucsjqa2NeK17c0N4YCGRmSE1Ck"/>
+        <meta-data android:name="android.max_aspect" android:value="2.34"/>
+        <meta-data android:name="com.alibaba.app.appkey" android:value="24633814"/>
+        <meta-data android:name="android.notch_support" android:value="true"/>
+        <meta-data android:name="notch.config" android:value="portrait|landscape"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.immomo.momo.android.activity.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.AppStartLoadTranslucent" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_22" android:name="com.immomo.momo.personalityIcon22" android:roundIcon="@mipmap/personality_round_22" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_21" android:name="com.immomo.momo.personalityIcon21" android:roundIcon="@mipmap/personality_round_21" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_20" android:name="com.immomo.momo.personalityIcon20" android:roundIcon="@mipmap/personality_round_20" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_19" android:name="com.immomo.momo.personalityIcon19" android:roundIcon="@mipmap/personality_round_19" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_18" android:name="com.immomo.momo.personalityIcon18" android:roundIcon="@mipmap/personality_round_18" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_17" android:name="com.immomo.momo.personalityIcon17" android:roundIcon="@mipmap/personality_round_17" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_16" android:name="com.immomo.momo.personalityIcon16" android:roundIcon="@mipmap/personality_round_16" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_15" android:name="com.immomo.momo.personalityIcon15" android:roundIcon="@mipmap/personality_round_15" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_14" android:name="com.immomo.momo.personalityIcon14" android:roundIcon="@mipmap/personality_round_14" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_13" android:name="com.immomo.momo.personalityIcon13" android:roundIcon="@mipmap/personality_round_13" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_12" android:name="com.immomo.momo.personalityIcon12" android:roundIcon="@mipmap/personality_round_12" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_11" android:name="com.immomo.momo.personalityIcon11" android:roundIcon="@mipmap/personality_round_11" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_10" android:name="com.immomo.momo.personalityIcon10" android:roundIcon="@mipmap/personality_round_10" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_9" android:name="com.immomo.momo.personalityIcon9" android:roundIcon="@mipmap/personality_round_9" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_8" android:name="com.immomo.momo.personalityIcon8" android:roundIcon="@mipmap/personality_round_8" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_7" android:name="com.immomo.momo.personalityIcon7" android:roundIcon="@mipmap/personality_round_7" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_6" android:name="com.immomo.momo.personalityIcon6" android:roundIcon="@mipmap/personality_round_6" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_5" android:name="com.immomo.momo.personalityIcon5" android:roundIcon="@mipmap/personality_round_5" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_4" android:name="com.immomo.momo.personalityIcon4" android:roundIcon="@mipmap/personality_round_4" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_3" android:name="com.immomo.momo.personalityIcon3" android:roundIcon="@mipmap/personality_round_3" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="false" android:exported="true" android:icon="@mipmap/personality_2" android:launchMode="singleTop" android:name="com.immomo.momo.personalityIcon2" android:roundIcon="@mipmap/personality_round_2" android:screenOrientation="portrait" android:targetActivity="com.immomo.momo.android.activity.WelcomeActivity" android:theme="@style/AppTheme.AppStartLoadTranslucent" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="momoopush"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="channel.com" android:scheme="momochat"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.welcome"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:name="com.immomo.momo.setting.activity.PermissionManagementActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.PermissionDescribeActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.maintab.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent.Fade"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.crash.CrashSaviorActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTask" android:name="com.immomo.momo.maintab.MaintabActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MainTab.Trans" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.maintab.NotificationActionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.mvp.visitme.activity.VisitorActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.android.activity.CommonInputActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.message.activity.ChatActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.message.activity.MaskChatActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.maskchat.MaskMsgActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.immomo.momo.message.activity.MaskChatReportActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.immomo.momo.message.activity.ChatReportActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.immomo.momo.message.activity.MessageListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.message.activity.ChatSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.agora.activity.InviteMemberToAudioChatActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.message.activity.GroupChatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentOrFloating" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.message.activity.MultiChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.message.activity.SelectGroupMemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.message.activity.ChatBGSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.momo.message.activity.NewChatBGSettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.message.activity.HiSessionListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.message.activity.OfficialFolderListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.mvp.message.view.MatchFolderListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.message.activity.InnerHiSessionListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.group.activity.GroupMemberFeedAndSpaceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.groupfeed.GroupPartyListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.common.activity.DianDianVideoPlayerActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme"/>
+        <activity android:name="com.immomo.momo.profile.activity.ProfileChooseSiteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.profile.activity.ProfileSearchSiteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateVisible"/>
+        <activity android:label="@string/draft" android:name="com.immomo.momo.feed.activity.DraftPublishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.feed.activity.SingleFeedVisitorActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.momo.mvp.feed.activity.NoticeMsgListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.momo.test.qaspecial.TestSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.momo.moment.activity.PropertyInfoActivity"/>
+        <activity android:name="com.immomo.momo.feed.activity.LikeFeedUserlistActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.groupfeed.LikeGroupFeedListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.publish.view.PublishGroupFeedActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.group.activity.GroupFeedProfileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/roam" android:name="com.immomo.momo.setting.activity.UserRoamActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.NetCheckerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.DebugHelperActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.mk.test.MKTestActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentOrFloating"/>
+        <activity android:label="@string/frienddiscover" android:name="com.immomo.momo.friendradar.activity.FriendDistanceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.contact.activity.RecommendUserListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:label="@string/open_authorize" android:name="com.immomo.momo.game.activity.AuthorizeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.AUTHORIZE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/open_authorize" android:name="com.immomo.momo.android.sdk.auth.AppAuthorizeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="open.immomo.momo" android:port="80" android:scheme="momosdk"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/edituserprofile" android:name="com.immomo.momo.game.activity.MDKEditUserProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.EDITPROFILE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.immomo.momo.game.activity.MDKUserProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.USERPROFILE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.immomo.momo.game.activity.MDKGroupProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.GROUPPROFILE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.immomo.momo.game.activity.GotoTiebaActivity" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.TIEBA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/feedback_title" android:name="com.immomo.momo.game.activity.MDKFeedBackActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.FEEDBACK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.immomo.momo.universe.audio.view.MediaGuideActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Black"/>
+        <activity android:name="com.immomo.momo.universe.audio.view.UniverseAudioRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.game.activity.GameProfileTabsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.emotionstore.activity.EmotionSetTaskActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.AboutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.TranslucentStatus"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.momo.setting.activity.UserSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.CommonSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.CloudMsgManagerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.contact.activity.SearchContactActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.setting.activity.FunctionSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.NightModelSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.FunctionNoticeSettingSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.PrivacySettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.FeedBlackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.music.play.MusicPlayingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.LiveNoticeSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.mvp.contacts.activity.AddContactActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.mvp.contacts.activity.ContactTabsActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWithActionButtonStyle.White"/>
+        <activity android:name="com.immomo.momo.group.activity.OnLookerListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.mvp.contacts.activity.CertificateContactOptionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.mvp.contacts.activity.EditFansActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.mvp.contacts.activity.CategoryGroupListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.group.activity.GroupInviteListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.map.activity.SelectSiteAMapActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.momo.map.activity.RomaAMapActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.map.activity.SearchSiteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="com.immomo.momo.group.activity.GroupProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White.TranslucentStatus" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.group.activity.GroupSetJoinAmountActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.group.activity.GroupInviteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.discuss.activity.DiscussNotificationSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.discuss.activity.DiscussProfileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.group.activity.EditGroupAnnounceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.group.activity.EditGroupProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.group.activity.GroupCategorySearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.emotionstore.activity.EmotionInviteTaskActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.discuss.activity.DiscussMemberListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.group.activity.SearchGroupActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.group.activity.NearbyRecommendGroupListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.contact.activity.ContactPeopleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.contact.activity.SearchFriendActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.contact.activity.SearchOfficalListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.contact.activity.SearchGuanzhuListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.contact.activity.CertificateContactActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MainTab"/>
+        <activity android:name="com.immomo.momo.contact.activity.ApiUserlistActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.contact.activity.OpenContactActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.group.activity.foundgroup.JoinGroupActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.group.activity.foundgroup.RefuseGroupApplyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="com.immomo.momo.setting.activity.ProtocolActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.platform.activity.PlatformGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.account.activity.SecurityCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.feed.site.view.FollowSiteListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.feed.activity.PublishFeedVideoPlayActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.imagefactory.imagewall.ImageWallActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.feed.activity.SelectFeedSiteActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.setting.activity.OnlineSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.CommentPrivacyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.MsgNoticeSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.FunctionNoticeSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.profile.activity.UserAvatarSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.profile.activity.SyncDianDianCoverToAvatarActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.BlacklistActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.HiddenlistActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.NewSetHiddenActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.feed.activity.AddInterestActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.share.activity.ShareMusicActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.imagefactory.imageborwser.impls.ImageBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.imagefactory.imageborwser.impls.WebImageBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.imagefactory.imageborwser.FeedImageWallActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.common.activity.KickOffActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:name="com.immomo.momo.common.activity.NewVersionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.CustomDialog"/>
+        <activity android:name="com.immomo.momo.common.activity.OppoUpdateActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.CustomDialog"/>
+        <activity android:name="com.immomo.momo.map.activity.GoogleMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.map.activity.UsersAMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.map.activity.MyLocationAMapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Map" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.immomo.momo.map.activity.MyLocationGoogleMapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Map" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.immomo.momo.map.activity.UserSiteMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.test.qaspecial.TestSelectLocActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.common.activity.InviteToDiscussTabsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.common.activity.InviteToGroupTabsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.common.activity.SelectSingleTabsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="fontScale|keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/share" android:name="com.immomo.momo.common.activity.ShareToMomoActivity" android:screenOrientation="user">
+            <intent-filter>
+                <data android:mimeType="image/*"/>
+                <action android:name="com.immomo.momo.action.SHARE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.SHARE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboardHidden|screenSize" android:exported="true" android:name="com.immomo.momo.common.activity.CommonShareActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Fullscreen.Translucent">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.COMMONSHARE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.common.activity.CloudMessageTabsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/emotestore" android:launchMode="singleTop" android:name="com.immomo.momo.emotionstore.activity.MainEmotionActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.mvp.nearby.activity.NearbyPopupAdActivity" android:screenOrientation="portrait" android:theme="@style/transActivityPopupTheme"/>
+        <activity android:name="com.immomo.momo.permission.BasicPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent1"/>
+        <activity android:name="com.immomo.momo.permission.LocationPermissionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent1"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.immomo.momo.mk.MomoMKWebActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentOrFloating" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.momo.mk.MomoMkWebDialogActivity" android:screenOrientation="behind" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.momo.mk.NormToolbarMKWebActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:launchMode="singleTask" android:name="com.immomo.momo.mk.MomoWAuthMKWebActivity" android:screenOrientation="portrait" android:taskAffinity="com.immomo.com" android:theme="@style/AppTheme.NotTranslucentOrFloating" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.immomo.momo.pay.activity.FlashChatPayVipActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenDialog" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.momo.textchat.activity.TextChatSessionListActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenDialog" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.happy.newyear.view.RedPacketActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.immomo.momo.wxapi.WXPayEntryActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.immomo.momo.wxapi.WXEntryActivity" android:taskAffinity="com.immomo.com" android:theme="@style/AppTheme.Fullscreen.Translucent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.pay.activity.MemberCenterMoreActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.pay.activity.MemIntroductionDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.video.player.SimpleVideoPlayerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.common.activity.VideoPlayerActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme"/>
+        <activity android:name="com.immomo.momo.common.activity.AnimojiPlayerActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme"/>
+        <activity android:name="com.immomo.momo.plugin.video.VideoPreviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.immomo.momo.moment.activity.VideoRecordAndEditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:name="com.immomo.momo.moment.activity.SelectMomentCoverActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.moment.activity.VideoSpeedAdjustActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.immomo.momo.webview.activity.WebviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentOrFloating">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="immomo.com" android:scheme="momochat"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTask" android:name="com.immomo.momo.webview.activity.WAuthWebviewActivity" android:screenOrientation="portrait" android:taskAffinity="com.immomo.com" android:theme="@style/AppTheme.NotTranslucentOrFloating"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.immomo.momo.webview.activity.TencentAuthWebviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentOrFloating"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.immomo.momo.webview.activity.WebviewAgoraActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/emotestore" android:name="com.immomo.momo.emotionstore.activity.EmotionProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/mineemotestore" android:name="com.immomo.momo.emotionstore.activity.MineEmotesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.emotionstore.activity.EmotionSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/emotioncategory" android:name="com.immomo.momo.emotionstore.activity.EmotionCategoryActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/emotioncategory" android:name="com.immomo.momo.emotionstore.activity.EmotionCategoryDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.customemotion.view.CustomEmotionListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.audio.view.MusicPickerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.immomo.momo.multpic.activity.ImageEditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow"/>
+        <activity android:name="com.immomo.momo.multpic.activity.ImagePreviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow"/>
+        <activity android:name="com.immomo.momo.fullsearch.activity.FullSearchActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.fullsearch.activity.FullSearchMessageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.fullsearch.activity.FullSearchMessageDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.fullsearch.activity.FullSearchUserActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.immomo.momo.recentonline.view.RecentOnlineActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.topic.view.TopicActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <receiver android:exported="false" android:name="com.immomo.momo.android.broadcast.NewVersionReceiver">
+            <intent-filter>
+                <action android:name="com.immomo.momo.action.hasnewversion"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.immomo.framework.battery.BatteryManager$AlarmClockReceiver"/>
+        <service android:enabled="true" android:name="com.baidu.location.f" android:process=":work"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <service android:exported="false" android:name="com.immomo.momo.android.service.LService">
+            <intent-filter>
+                <action android:name="com.immomo.momo.android.service.location_service"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.immomo.momo.android.service.Cleaner"/>
+        <service android:exported="false" android:name="com.immomo.momo.service.cleaner.LocalFileCleaner"/>
+        <service android:exported="false" android:name="com.immomo.momo.android.service.Initializer"/>
+        <service android:exported="false" android:name="com.immomo.momo.textchat.CountdownService"/>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100392046"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.immomo.momo.test.TestAPActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.test.BaseScrollViewDemoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.immomo.momo.plugin.alipay.activity.BindingAliEntryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="com.immomo.momo" android:port="80" android:scheme="momochat"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.immomo.momo.plugin.alipay.activity.AlipayAuthActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="platformapi/startapp" android:port="80" android:scheme="alipays"/>
+            </intent-filter>
+        </activity>
+        <uses-library android:name="android.test.runner" android:required="false"/>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <activity android:excludeFromRecents="true" android:name="com.immomo.momo.sdk.support.ShareToFeedActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:excludeFromRecents="true" android:name="com.immomo.momo.sdk.support.ShareToChatActivity" android:screenOrientation="portrait"/>
+        <provider android:authorities="com.immomo.momo.sdkProvider" android:exported="true" android:name="com.immomo.momo.sdk.support.MomoSdkSupportProvider"/>
+        <provider android:authorities="com.immomo.momo.cacheProvider" android:exported="false" android:name="com.immomo.momo.provider.PublicCacheProvider"/>
+        <provider android:authorities="com.immomo.momo.DBContentProvider" android:exported="false" android:name="com.immomo.momo.contentprovider.DBContentProvider"/>
+        <provider android:authorities="com.immomo.momo.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_file_path"/>
+        </provider>
+        <activity android:name="com.immomo.momo.test.MfrPermissionTestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.feed.activity.PublishFeedPermissionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.feed.activity.FeedPermissionSelectUsers" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.videodraft.activity.VideoCutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow"/>
+        <activity android:name="com.immomo.momo.forum.activity.PublishCircleActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.forum.activity.PublishTeamActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.immomo.momo.videochat.friendvideo.single.ui.FriendQChatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateHidden"/>
+        <service android:name="com.immomo.momo.screenlock.LockService"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.statistics.traffic.activity.TrafficRecordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatSelectUsersActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.videochat.friendvideo.videoOrderRoom.activity.InviteFriendToRoomHostActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.android.moblie.zmxy.antgroup.creditsdk.app.SDKActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.android.moblie.zmxy.antgroup.creditsdk.ui.FaceVerifyGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.android.moblie.zmxy.antgroup.creditsdk.ui.face.FaceDetectActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.game.activity.GameMahjongActivity" android:screenOrientation="portrait" android:theme="@style/Mahjong_Activity_NoTitleBar.Fullscreen"/>
+        <meta-data android:name="com.immomo.molive.mo_live_provider" android:value="com.immomo.momo.MoliveProvider"/>
+        <meta-data android:name="com.immomo.molive.im_provider" android:value="com.immomo.momo.MoliveIMProvider"/>
+        <service android:exported="false" android:label="IMHoney" android:name="com.immomo.molive.impb.PbRoomSessionService"/>
+        <provider android:authorities="com.immomo.momo.MoliveProvider" android:name="com.immomo.molive.data.MoliveProvider"/>
+        <receiver android:exported="false" android:name="com.immomo.thirdparty.umeng.message.NotificationProxyBroadcastReceiver"/>
+        <receiver android:exported="true" android:name="com.immomo.thirdparty.umeng.message.SystemReceiver"/>
+        <receiver android:exported="false" android:name="com.immomo.thirdparty.umeng.message.MessageReceiver">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.immomo.thirdparty.umeng.message.ElectionReceiver" android:process=":work">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_RESULT_V4"/>
+                <category android:name="umeng"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.immomo.thirdparty.umeng.message.RegistrationReceiver">
+            <intent-filter>
+                <action android:name="dollar_openBracket_applicationId_closeBracket"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.immomo.thirdparty.umeng.message.UmengMessageBootReceiver"/>
+        <service android:name="com.immomo.momo.hotfix.PatchResultService"/>
+        <service android:exported="false" android:name="com.immomo.momo.hotfix.PatchCheckService" android:process=":work"/>
+        <activity android:name="com.immomo.momo.setting.activity.HarassGreetingSettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.message.activity.HarassGreetingSessionActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.common.activity.ToastPermissionDialogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.immomo.momo.applinks.AppLinksActivity" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="ulink.immomo.com" android:path="/android-app" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.immomo.momo.mvp.visitme.activity.VisitorSecondActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.videochat.friendvideo.videoOrderRoom.activity.WebPanelActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.feed.activity.AtSelectFriendActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.account.activity.BindPhoneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.moment.livephoto.view.LivePhotoEditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.immomo.momo.setting.activity.ShenghaoAntiDisturbActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.contact.activity.NewSearchGroupMemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.immomo.momo.setting.activity.FeedPrivateSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.CanFrowardSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.CanAtSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.plugin.acitivity.WeixinMiniPorgramActivity"/>
+        <activity android:name="com.immomo.momo.maintab.usecase.AvatarCheckActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Fullscreen.Translucent"/>
+        <service android:exported="false" android:label="IMDebugger" android:name="com.immomo.momo.dynamicdebugger.service.IMDebuggerService" android:process=":im"/>
+        <service android:exported="false" android:label="MainDebugger" android:name="com.immomo.momo.dynamicdebugger.service.MainDebuggerService"/>
+        <service android:exported="false" android:label="WorkDebugger" android:name="com.immomo.momo.dynamicdebugger.service.WorkDebuggerService" android:process=":work"/>
+        <service android:exported="false" android:label="PushDebugger" android:name="com.immomo.momo.dynamicdebugger.service.PushDebuggerService" android:process=":push"/>
+        <service android:name="com.immomo.momo.videochat.friendvideo.single.SoundOrVideoService"/>
+        <service android:name="com.immomo.momo.forum.TeamPublishService"/>
+        <activity android:name="com.immomo.molive.gui.activities.live.LiveCommonShareActivity" android:theme="@style/AppTheme.LiveShare"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.certify.ui.UserCertifyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.certify.ui.RealCertifyCenterHalfActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.setting.activity.QRScanActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.message.activity.GroupApplyMemberListActivity" android:screenOrientation="portrait" android:theme="@style/transActivityPopupTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.imagefactory.imageborwser.impls.ChatImageBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.imagefactory.imageborwser.impls.FeedImageBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.newaccount.sayhi.view.RegisterSayHiActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.newaccount.emotionfeed.GuidePublishEmotionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.newaccount.sayhi.pk.PKSayHiActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.newaccount.sayhi.relation.RelationRecommendActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.mulog.test.MULogTestActivity"/>
+        <activity android:name="com.immomo.momo.newaccount.recommendredstar.view.RecommendRedStarActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.SimTranslucent.Fade.Alpha" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.newaccount.recommendscene.RecommendSceneActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.SimTranslucent.Fade.Alpha" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.group.activity.GroupUserMiniCardActivity" android:screenOrientation="portrait" android:theme="@style/transActivityPopupTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.group.activity.UserMiniCardGroupListActivity" android:screenOrientation="portrait" android:theme="@style/transActivityPopupTheme"/>
+        <activity android:name="com.immomo.momo.mk.test.MKTestInterceptActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.group.activity.ReleaseFansActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.flashchat.activity.FlashMatchSucActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.momo.mvp.message.view.FlashChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.imageloader.ImageTestActivity"/>
+        <activity android:name="com.immomo.momo.message.view.SyncQAToProfileDialogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.SimTranslucent"/>
+        <activity android:name="com.immomo.momo.mvp.interactive.view.MyInteractiveActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.privacy.activity.PrivacySettingGuidActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.message.sayhi.activity.HarassChangeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.message.sayhi.activity.GreetDialog" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.momo.flashchat.activity.FlashChatContainerActivity"/>
+        <activity android:name="com.immomo.momo.flashchat.activity.FlashChatQuestionActivity" android:theme="@style/FullScreenDialog"/>
+        <activity android:name="com.immomo.momo.flashchat.activity.FlashChatAskActivity" android:theme="@style/FullScreenDialog"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.setting.activity.VideoPlayHintDialog" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.mvp.message.view.HarassChatActivity" android:screenOrientation="portrait" android:theme="@style/HarassTheme"/>
+        <activity android:name="com.immomo.momo.message.activity.HiSessionSendListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.message.activity.NewBoySessionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.message.activity.HePaiSessionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.message.activity.SpamSessionListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.android.module.nearbypeople.presentation.NearbyPeopleCardActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme"/>
+        <activity android:name="com.immomo.momo.passby.PassByActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.roaming.activity.VipRoamingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoTranslucentWhite"/>
+        <activity android:name="com.immomo.momo.map.activity.RoamMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.setting.activity.FunSettingLuaActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.immomo.momo.message.activity.DBFixActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.audiomatch.view.AudioMatchActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.audiomatch.view.AudioChatOverActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.audiomatch.view.NearbyAudioChatActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.imagefactory.imageborwser.impls.SnapImageBrowserActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.Fullscreen.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.message.sayhi.activity.SayHiGiftActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.textchat.activity.TChatMatchActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.textchat.activity.TChatActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.mvp.contacts.activity.ContactLuaActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:exported="true" android:name="com.cosmos.radar.memory.leak.view.LeakListActivity"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.immomo.momo.brainmatch.session.presentation.BrainMatchSessionListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.brainmatch.message.BrainMessageActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.momo.maintab.session2.presentation.activity.FoldMsgSessionListActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="com.dtf.face.ui.FaceLoadingActivity" android:screenOrientation="portrait" android:theme="@style/DtfToygerLoadingAppTheme"/>
+        <activity android:exported="false" android:name="com.dtf.face.ui.ToygerLandActivity" android:screenOrientation="landscape" android:theme="@style/DtfToygerAppTheme"/>
+        <activity android:exported="false" android:name="com.dtf.face.ui.ToygerPortActivity" android:screenOrientation="portrait" android:theme="@style/DtfToygerAppTheme"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.fm.presentation.fragment.UniFmActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.immomo.momo.personalprofile.presentation.activity.PersonalProfileActivityK" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.personalprofile.setting.UserProfileSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.imagefactory.imageborwser.impls.DianDianImageBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.imagefactory.imageborwser.impls.ProfileAvatarImageBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.personalprofile.activity.EditNormalPersonalProfileActivityK" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.personalprofile.activity.EditVipPersonalProfileActivityK" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.personalprofile.activity.FootprintActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White.NotTranslucentOrFloating"/>
+        <activity android:name="com.immomo.momo.personalprofile.activity.FootprintPicPreviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.profile.activity.MiniProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.momo.personalprofile.activity.DeviceSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.personalprofile.activity.PersonalProfileGirlExclusiveQuestionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.personalprofile.activity.PersonalProfileGirlExclusiveWishActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.personalprofile.activity.EditUserAvatarActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.personalprofile.activity.PersonalProfileQARecommendActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.personalprofile.activity.PersonalProfileExquisiteAlbumActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.momo.imagefactory.imageborwser.impls.AlbumPicBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/audiodesc" android:name="com.immomo.momo.profile.presentation.view.EditVoiceIntroduceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.personalprofile.presentation.activity.EditMoodStateActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="com.immomo.momo.voice.activity.VWRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.immomo.momo.voice.activity.VoiceWaveDetailListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.publish.view.FeedImageVideoActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.publish.view.PublishFeedActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.publish.view.PublishDynamicActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.publish.view.PhotoTogetherPublishActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.publish.view.PublishImageBrowserActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.publish.view.ChooseTopicActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.feed.activity.AdVideoFullScreenActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.feed.activity.PublishFeedShareActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="true" android:name="com.immomo.momo.feed.activity.SharePublishFeedActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.immomo.momo.feed.activity.FeedAdVideoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.imagefactory.imageborwser.impls.SimpleImageBrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.feed.activity.SimpleVideoPlayerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.memory.MemoryVideoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.immomo.momo.memory.MemoryPhotoMergeVideoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.memory.PhotoTemplateListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.universe.chatpage.remark.UniRemarkActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.universe.chatpage.presentation.UniIntimacyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.universe.star.UniverseStarActivity" android:theme="@style/AppTheme.UniverseStar"/>
+        <activity android:name="com.immomo.momo.universe.chatpage.presentation.UniChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.universe.notifacation.presentation.UniSessionListActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.universe.publish.presentation.UniversePublishFeedActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <service android:exported="false" android:name="com.immomo.momo.universe.publish.PublishService"/>
+        <activity android:name="com.immomo.momo.universe.profile.presentation.ProfileBgGuideActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Black"/>
+        <activity android:name="com.immomo.momo.universe.profile.ProfileBgUploadActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Black"/>
+        <activity android:name="com.immomo.momo.universe.profile.ChangeNewProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.universe.notifacation.presentation.UniFoldSessionListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.universe.publish.presentation.UniverseHelpPublishActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.android.module.newgame.activity.GameWebPanelActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.quickchat.videoOrderRoom.activity.QuickChatVideoOrderRoomActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoBackground" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.quickchat.videoOrderRoom.activity.ChannelContainerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.immomo.momo.quickchat.videoOrderRoom.activity.QuickChatEditOrderRoomHostActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.quickchat.videoOrderRoom.activity.QuickChatAuctionResultListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.quickchat.videoOrderRoom.activity.QuickMyFavorOrderRoomActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.quickchat.effect.VideoEffectDemoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.momo.quickchat.giftpanel.GiftPanelDemoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoBackground"/>
+        <activity android:name="com.immomo.android.mvvm.luaview.view.LoginLuaActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoTranslucentWhite" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.android.mvvm.luaview.view.RegisterLuaActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoTranslucentWhite" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.android.mvvm.luaview.view.LoginVerifyLuaActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoTranslucentWhite" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.android.mvvm.luaview.view.LuaViewUnLoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoTranslucentWhite" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.immomo.android.mvvm.thirdlogin.presentation.view.ThirdLoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Fullscreen.ThirdLogin" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.android.login.multi.view.MultiAccountActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.android.login.bindphone.view.BindPhoneNumberActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.android.login.bindphone.view.BindPhoneStatusActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:name="com.immomo.android.login.security.view.SecurityCheckActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.android.login.auth.view.AuthDeviceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.android.login.auth.view.AuthDevicePhoneActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.android.login.multi.view.MultiAccountCardActivity" android:screenOrientation="portrait" android:theme="@style/transFullActivityTheme"/>
+        <activity android:name="com.immomo.android.mvvm.oppokeychain.view.KeyChainLoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoTranslucentWhite"/>
+        <activity android:name="com.immomo.momo.luaview.LuaViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.immomo.momo.luaview.LuaViewHalfActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.immomo.momo.luaview.LuaViewLiveActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.immomo.momo.luaview.LuaViewNearbyLivelActivity" android:screenOrientation="portrait" android:theme="@style/transFullActivityTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.immomo.momo.luaview.LuaViewVideoActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme.NotTranslucentOrFloating" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.ui.LiveListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.molive.ui.screenrecord.ScreenRecordListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.molive.ui.screenrecord.ScreenRecordPlayActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.molive.ui.actionartlist.ActionArtListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.molive.ui.livemain.SecondaryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.molive.ui.speedtest.AnchorSpeedTestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.molive.ui.livingsettings.LivingSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.music.MusicActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.soundeffect.activity.MusicManagerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.soundeffect.activity.MusicPickerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.ui.search.MoliveSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.ui.search.MoliveSearchTagActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="true" android:name="com.immomo.molive.gui.activities.share.WbShareActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.molive.gui.activities.live.base.LiveActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.molive.videomatch.VideoMatchActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.molive.videomvp.VideoMVPActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.molive.gui.activities.vote.VoteActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.immomo.molive.gui.activities.live.LiveAnalysisShareActivity" android:screenOrientation="portrait" android:theme="@style/ActivtyTransparentStyle"/>
+        <activity android:name="com.immomo.molive.gui.activities.live.CoverSettingActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.molive.gui.activities.imagepicker.MulImagePickerActivity" android:process=":image" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.molive.gui.activities.imagepicker.ImageFactoryActivity" android:process=":image" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.molive.gui.activities.decorate.ImageDecorateActivity" android:process=":image" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.music.MusicScanActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.music.MusicOperationActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.replay.ReplayActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:keepScreenOn="true" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.playback.PlaybackActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.playback.LivePlaybackActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.immomo.molive.gui.activities.live.TransparentWebActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.immomo.molive.teenager.TeenagerActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="false" android:hardwareAccelerated="true" android:keepScreenOn="true" android:launchMode="singleTop" android:name="com.immomo.molive.authentication.PhotoAuthActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow"/>
+        <activity android:exported="false" android:hardwareAccelerated="true" android:keepScreenOn="true" android:launchMode="singleTop" android:name="com.immomo.molive.authentication.video.VideoAuthActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentWindow"/>
+        <service android:name="com.immomo.android.module.live.plugin.MainPluginProcessService"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:launchMode="standard" android:name="com.immomo.plugin.sample.runtime.PluginDefaultProxyActivity" android:screenOrientation="portrait" android:theme="@style/PluginLiveActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:launchMode="singleInstance" android:name="com.immomo.plugin.sample.runtime.PluginSingleInstance1ProxyActivity" android:screenOrientation="portrait" android:theme="@style/PluginLiveActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.immomo.plugin.sample.runtime.PluginSingleTask1ProxyActivity" android:screenOrientation="portrait" android:theme="@style/PluginLiveActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.immomo.plugin.sample.runtime.PluginSingleTop1ProxyActivity" android:screenOrientation="portrait" android:theme="@style/PluginLiveActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.molive.newradio.activity.NewRadioHomeActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppThemeAppCompatNoAnim" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.gamejs.WebViewJSActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.marry.quickchat.marry.activity.KliaoMarryRoomActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoBackground" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.momo.voicechat.activity.VoiceChatRoomActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VoiceChatRoomQuitActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatInteractionMissionActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatCompanionActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatMyRoomActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.voicechat.activity.VChatInviteDialogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.voicechat.activity.VChatSameCityRoomInviteFollowDialogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatAvatarDecorationActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatJoinPermissionConfigActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatRoomSettingsActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatRoomSettingsProfileEditingActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatRoomSettingsEditActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatSuperRoomResidentListActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatSuperRoomNotificationSettingActivity" android:screenOrientation="portrait" android:theme="@style/MultiTouchDisabledTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.immomo.momo.voicechat.activity.VChatSuperRoomInviteResidentDialogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.momo.voicechat.activity.VChatMedalActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoBackground" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:name="com.immomo.momo.voicechat.VChatSoundOrVideoService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.immomo.android.module.mahjong.activity.GameMahjongActivity" android:screenOrientation="portrait" android:theme="@style/Mahjong_Activity_NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.mahjong.webview.activity.MJWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NotTranslucentOrFloating" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.immomo.momo.BusinessAdAwardActivity" android:screenOrientation="portrait"/>
+        <uses-library android:name="org.simalliance.openmobileapi" android:required="false"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <activity android:name="com.immomo.android.mmpay.activity.ChangePhoneCheckPayPwdActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.android.mmpay.activity.PayActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.SimTranslucent"/>
+        <activity android:name="com.immomo.android.mmpay.activity.PayVipActivity" android:screenOrientation="portrait" android:theme="@style/FullScreenDialog" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.android.mmpay.activity.WalletCheckActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Light.DialogActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.immomo.android.mmpay.activity.RechargeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.android.mmpay.widget.FastRechargeActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.immomo.android.mmpay.activity.SubActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.android.mmpay.activity.MemberCenterMoreActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.immomo.android.mmpay.activity.MemIntroductionDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.android.mmpay.activity.FastPayBuyActivity" android:screenOrientation="portrait" android:theme="@style/transActivityTheme"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.jdpaysdk.author.AuthorActivity" android:theme="@style/Theme.Activity.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="jdpauthjdjr137765137003"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="jdpauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.molive.gui.activities.live.component.family.FamilyCommentShowActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.immomo.molive.gui.activities.lua.LuaViewLiveExtActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.molive.social.live.component.matchmaker.gui.MatchMakerContainerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.molive.gui.activities.imagepicker.ImagePickerActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.immomo.molive.imgame.PbGameSessionService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.social.live.component.matchmaker.gui.MatchMakerSlideActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.webgltest.WebGLTestDemoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.webgltest.qr.QRScanActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.speak.atspop.FamilyAtsSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.effectpreview.EffectPreviewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.effectpreview.EffectScanQrActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.immomo.molive.gui.activities.live.effectpreview.svga.VersatileSVGAPreviewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <service android:enabled="true" android:foregroundServiceType="mediaProjection" android:name="com.immomo.molive.social.radio.foundation.screenrecoder.CaptureScreenService"/>
+        <service android:enabled="true" android:foregroundServiceType="mediaProjection" android:name="com.immomo.molive.gui.activities.live.component.family.screenshot.FamilyScreenShotService"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.autotracker.android.sdk.dialog.SchemeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="report.com" android:scheme="momochat"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.immomo.molive.hotfix.practice.HotFixPracticeKtActivity"/>
+        <activity android:exported="false" android:name="com.immomo.molive.hotfix.practice.HotFixPracticeActivity"/>
+        <service android:foregroundServiceType="camera|microphone" android:name="com.immomo.molive.mediasdk.service.MediaKeepAliveService"/>
+        <activity android:exported="false" android:name="com.immomo.wstest.WSTestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.lsgame.scene.GameSceneActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.lsgame.scene.ImTestActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.lsgame.scene.LinkTestActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <service android:name="com.immomo.lsgame.im.imgame.LSGameSessionService"/>
+        <service android:name="com.immomo.lsgame.im.imgame2.LSGame2SessionService"/>
+        <service android:name="com.immomo.lsgame.im.message.service.LSChatSessionService"/>
+        <service android:name="com.immomo.lsgame.im.message.service.LSHallSessionService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.momo.imagefactory.docorate.ImageDecorateActivity" android:process=":work" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:exported="false" android:name="com.tencent.matrix.backtrace.WarmUpService" android:process=":backtrace__"/>
+        <service android:exported="false" android:name="immomo.com.mklibrary.service.MKPrepareService">
+            <intent-filter>
+                <action android:name="com.immomo.momo.prepare_mk"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.mk.bussiness.ui.MKCommonWebPanelActivity" android:screenOrientation="portrait" android:theme="@style/MKTranslucentStyle"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.mk.bussiness.ui.NormalWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MKActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.immomo.mk.bussiness.ui.MKWebCommonActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.MKActivity" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <meta-data android:name="MG_SDK_VERSION" android:value="1.0.0"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.immomo.mgs.sdk.ui.TestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.immomo.mgs.sdk.ui.GameListActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.immomo.mgs.sdk.ui.GameBaseActivity"/>
+        <service android:exported="false" android:label="IM" android:name="com.immomo.momo.android.service.XServiceX" android:process=":im"/>
+        <service android:name="com.immomo.momo.android.service.DeamonXService" android:process=":im"/>
+        <receiver android:exported="false" android:name="com.immomo.momo.protocol.imjson.AlarmBroadcastReceiver">
+            <intent-filter>
+                <action android:name="momo.alwayson.alarm.action"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.immomo.mncertification.CertificationActivity" android:screenOrientation="portrait"/>
+        <service android:exported="true" android:name="com.immomo.push.service.PushService" android:process=":push">
+            <intent-filter>
+                <action android:name="com.immomo.momo.push.core"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.immomo.push.service.SchedulerPushService">
+            <intent-filter>
+                <action android:name="com.immomo.momo.push.scheduler"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.immomo.push.service.DeamonXService" android:process=":push"/>
+        <provider android:authorities="com.immomo.momo.push.provider" android:exported="true" android:name="com.immomo.push.channel.MoPushProvider"/>
+        <activity android:name="com.immomo.push.notification.BlankActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="true" android:name="com.immomo.push.service.PushOVActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="MIPUSH_SDK_VERSION_CODE" android:value="50909"/>
+        <meta-data android:name="MIPUSH_SDK_VERSION_NAME" android:value="5_9_9-C"/>
+        <meta-data android:name="MI_PUSH_APPID" android:value="@string/MI_PUSH_APPID"/>
+        <meta-data android:name="MI_PUSH_APPKEY" android:value="@string/MI_PUSH_APPKEY"/>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":push"/>
+        <service android:enabled="true" android:exported="false" android:name="com.xiaomi.push.service.XMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":push"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler" android:permission="com.xiaomi.xmsf.permission.MIPUSH_RECEIVE"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":push">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:enabled="true" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.xiaomi.mipush.sdk.NotificationClickedActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.sdk.NotificationClickedActivity"/>
+            </intent-filter>
+            <meta-data android:name="supportStyle" android:value="scene|voip"/>
+        </activity>
+        <receiver android:exported="true" android:name="com.immomo.push.thirdparty.mi.MiMessageReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.immomo.push.thirdparty.huawei.MMHmsMessageService">
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.immomo.push.thirdparty.oppo.OppoPushService" android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+            <intent-filter>
+                <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.immomo.push.thirdparty.oppo.OppoAppPushService" android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
+            <intent-filter>
+                <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="OPPO_PUSH_SECRET" android:value="@string/OPPO_PUSH_SECRET"/>
+        <meta-data android:name="OPPO_PUSH_APPKEY" android:value="@string/OPPO_PUSH_APPKEY"/>
+        <meta-data android:name="sdk_version_vivo" android:value="484"/>
+        <service android:exported="true" android:name="com.vivo.push.sdk.service.CommandClientService" android:permission="com.push.permission.UPSTAGESERVICE"/>
+        <meta-data android:name="com.vivo.push.api_key" android:value="@string/VIVO_PUSH_APPKEY"/>
+        <meta-data android:name="com.vivo.push.app_id" android:value="@string/VIVO_PUSH_APPID"/>
+        <receiver android:exported="false" android:name="com.immomo.push.thirdparty.vivo.VivoPushReceiver">
+            <intent-filter>
+                <action android:name="com.vivo.pushclient.action.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="local_iv" android:value="MzMsMzQsMzUsMzYsMzcsMzgsMzksNDAsNDEsMzIsMzgsMzcsMzYsMzUsMzQsMzMsI0AzNCwzMiwzMywzNywzMywzNCwzMiwzMywzMywzMywzNCw0MSwzNSwzNSwzMiwzMiwjQDMzLDM0LDM1LDM2LDM3LDM4LDM5LDQwLDQxLDMyLDM4LDM3LDMzLDM1LDM0LDMzLCNAMzQsMzIsMzMsMzcsMzMsMzQsMzIsMzMsMzMsMzMsMzQsNDEsMzUsMzIsMzIsMzI"/>
+        <meta-data android:name="com.hihonor.push.app_id" android:value="@string/HONOR_PUSH_APPID"/>
+        <service android:exported="false" android:name="com.immomo.push.thirdparty.honor.HonorMsgService">
+            <intent-filter>
+                <action android:name="com.hihonor.push.action.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.immomo.molive.radio.NewRadioActivity" android:screenOrientation="portrait" android:theme="@style/HaniAppThemeAppCompatNoAnim" android:windowSoftInputMode="adjustNothing"/>
+        <service android:foregroundServiceType="camera|mediaPlayback|microphone" android:name="com.immomo.molive.radio.service.NewRadioMediaKeepAliveService"/>
+        <activity android:clearTaskOnLaunch="true" android:exported="false" android:name="com.google.zxing.client.android.CaptureActivity" android:screenOrientation="portrait" android:stateNotNeeded="true" android:theme="@style/CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="zxing.appspot.com" android:path="/scan" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/history_title" android:name="com.google.zxing.client.android.history.HistoryActivity" android:stateNotNeeded="true"/>
+        <activity android:name="com.momo.xeengine.XInputActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.immomo.momo.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.alipay.sdk.app.H5AuthActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:launchMode="singleInstance" android:name="com.alipay.sdk.app.PayResultActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:launchMode="singleTask" android:name="com.alipay.sdk.app.AlipayResultActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.alipay.sdk.app.H5OpenAuthActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.alipay.sdk.app.APayEntranceActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:directBootAware="true" android:exported="true" android:name="com.huawei.hms.support.api.push.PushMsgReceiver" android:permission="com.immomo.momo.permission.PROCESS_PUSH_MSG">
+            <intent-filter>
+                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
+                <action android:name="com.huawei.intent.action.PUSH"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="true" android:exported="true" android:name="com.huawei.hms.support.api.push.PushReceiver" android:permission="com.immomo.momo.permission.PROCESS_PUSH_MSG">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
+                <action android:name="com.huawei.android.push.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:enabled="true" android:exported="true" android:name="com.huawei.hms.support.api.push.service.HmsMsgService" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.huawei.push.msg.NOTIFY_MSG"/>
+                <action android:name="com.huawei.push.msg.PASSBY_MSG"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.immomo.momo.huawei.push.provider" android:exported="true" android:name="com.huawei.hms.support.api.push.PushProvider" android:readPermission="com.immomo.momo.permission.PUSH_PROVIDER" android:writePermission="com.immomo.momo.permission.PUSH_WRITE_PROVIDER"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:push" android:value="push:6.9.0.300"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:push:push" android:value="1"/>
+        <activity android:exported="false" android:name="com.huawei.hms.support.api.push.TransActivity"/>
+        <meta-data android:name="com.hihonor.push.sdk_version" android:value="7.0.41.301"/>
+        <activity android:name="com.bun.miitmdid.utilsforrequestpermission.PermissionTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ads-identifier" android:value="ads-identifier:3.4.62.300"/>
+        <activity android:exported="false" android:name="com.jdpaysdk.author.browser.BrowserActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.sensorsdata.analytics.android.MainProcessName" android:value="com.immomo.momo"/>
+        <meta-data android:name="com.sensorsdata.analytics.android.version" android:value="1.0"/>
+        <service android:name="com.immomo.autotracker.android.sdk.floatwindow.service.FloatMonkService"/>
+        <provider android:authorities="com.immomo.momo.aaidinitprovider" android:exported="false" android:initOrder="500" android:name="com.huawei.hms.aaid.InitProvider"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:opendevice" android:value="opendevice:6.9.0.300"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:opendevice:push" android:value="1"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:base" android:value="base:6.8.0.300"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:base:hmscore" android:value="1"/>
+        <meta-data android:name="availableLoaded" android:value="yes"/>
+        <activity android:configChanges="fontScale|layoutDirection|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:name="com.huawei.hms.activity.BridgeActivity" android:screenOrientation="behind" android:theme="@style/Base_Translucent">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.huawei.hms.activity.EnableServiceActivity"/>
+        <provider android:authorities="com.immomo.momo.AGCInitializeProvider" android:exported="false" android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"/>
+        <service android:exported="false" android:name="com.huawei.agconnect.core.ServiceDiscovery"/>
+        <meta-data android:name="com.huawei.hms.client.appid" android:value="appid=1023563"/>
+    </application>
+</manifest>
