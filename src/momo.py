@@ -14,6 +14,3 @@ class Momo:
         script = self.session.create_script(self.scripts[file_name])
         script.load()
         return script
-
-    def setup(self, *args):
-        return self.script.exports.setup(*args)

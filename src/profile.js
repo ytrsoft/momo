@@ -41,7 +41,7 @@ function deepParse(obj) {
 }
 
 rpc.exports = {
-  setup: function(remoteid) {
+  profile: function(remoteid) {
     Java.perform(function() {
       setup(remoteid)
     })

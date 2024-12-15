@@ -6,9 +6,15 @@ momo = Momo(14924)
 app = Flask(__name__)
 
 @app.route('/profile/<id>', methods=['GET'])
-def send_message(id):
+def profile(id):
     script = momo.load('profile')
-    result = script.exports.setup(id)
+    result = script.exports.profile(id)
+    return jsonify(result)
+
+@app.route('/nearly', methods=['GET'])
+def nearly():
+    script = momo.load('nearly')
+    result = script.exports.nearly()
     return jsonify(result)
 
 if __name__ == '__main__':
