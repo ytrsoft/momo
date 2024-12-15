@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from momo import Momo
 
-momo = Momo(14924)
+momo = Momo(9388)
 
 app = Flask(__name__)
 
@@ -15,6 +15,24 @@ def profile(id):
 def nearly():
     script = momo.load('nearly')
     result = script.exports.nearly()
+    return jsonify(result)
+
+@app.route('/news', methods=['GET'])
+def news():
+    script = momo.load('news')
+    result = script.exports.news()
+    return jsonify(result)
+
+@app.route('/timeline/<id>', methods=['GET'])
+def timline(id):
+    script = momo.load('timeline')
+    result = script.exports.timeline(id)
+    return jsonify(result)
+
+@app.route('/comments/<id>', methods=['GET'])
+def comments(id):
+    script = momo.load('comments')
+    result = script.exports.comments(id)
     return jsonify(result)
 
 if __name__ == '__main__':
