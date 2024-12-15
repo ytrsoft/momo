@@ -1,11 +1,12 @@
+var global
+
 function setup(remoteid) {
   const url = 'https://api.immomo.com/v3/user/profile/info'
   const targetClass = Java.use('com.immomo.momo.protocol.http.a.a')
   const http = targetClass.$new()
   const args = generateParams(remoteid)
   const response = http.doPost(url, args)
-  const profile = deepParse(JSON.parse(response)).data.profile
-  console.log('=>', profile.name)
+  global = deepParse(JSON.parse(response)).data
 }
 
 function generateParams(remoteid) {
@@ -44,5 +45,6 @@ rpc.exports = {
     Java.perform(function() {
       setup(remoteid)
     })
+    return global
   }
 }
