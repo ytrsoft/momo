@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from momo import Momo
 
-momo = Momo(18855)
+momo = Momo(5704)
 
 app = Flask(__name__)
 CORS(app)
@@ -35,6 +35,12 @@ def timline(id):
 def comments(id):
     script = momo.load('comments')
     result = script.exports.comments(id)
+    return jsonify(result)
+
+@app.route('/history', methods=['GET'])
+def history():
+    script = momo.load('history')
+    result = script.exports.history()
     return jsonify(result)
 
 @app.route('/post', methods=['POST'])
