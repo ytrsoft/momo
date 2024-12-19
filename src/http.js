@@ -36,7 +36,7 @@ function logTrigger(response) {
   }
 }
 
-Java.perform(function () {
+Java.perform(() => {
   Java.use('okhttp3.Request')
   Java.use('okhttp3.Response')
   Java.use('okhttp3.Interceptor$Chain')

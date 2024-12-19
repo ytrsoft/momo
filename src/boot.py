@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from momo import Momo
 
-momo = Momo(5704)
+momo = Momo(7507)
 
 app = Flask(__name__)
 CORS(app)
@@ -47,13 +47,15 @@ def history():
 def post():
     data = request.get_json()
     if not all(key in data for key in ['momoid', 'remoteId', 'content']):
-        return jsonify({'error': '请检查参数是否完整'}), 400
+        return jsonify({'error': '参数错误'}), 400
     msg = {
         'momoid': data['momoid'],
         'remoteId': data['remoteId'],
         'content': data['content']
     }
-    return jsonify(msg)
+    script = momo.load('post')
+    result = script.exports.post(msg)
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(host='localhost', port=8080, threaded=True)
