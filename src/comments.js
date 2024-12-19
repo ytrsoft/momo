@@ -1,30 +1,33 @@
-  var v_comments
+  var commentsData
 
   function setup(feedId) {
     const url = 'https://api.immomo.com/v2/feed/comment/comments'
-    const targetClass = Java.use('com.immomo.momo.protocol.http.a.a')
-    const http = targetClass.$new()
-    const args = generateParams(feedId)
-    const response = http.doPost(url, args)
-    v_comments = JSON.parse(response).data
+    const http = createHttpClient()
+    const requestParams = createRequestParams(feedId)
+    const response = http.doPost(url, requestParams)
+    commentsData = JSON.parse(response).data
   }
 
-  function generateParams(feedId) {
+  function createRequestParams(feedId) {
     const LinkedHashMap = Java.use('java.util.LinkedHashMap')
-    const root = LinkedHashMap.$new()
-    root.put('feedid', feedId)
-    root.put('sort_type', 'early')
-    root.put('count', '20')
-    root.put('index', '0')
-    return root
+    const params = LinkedHashMap.$new()
+    params.put('feedid', feedId)
+    params.put('sort_type', 'early')
+    params.put('count', '50')
+    params.put('index', '0')
+    return params
   }
 
+  function createHttpClient() {
+    const HttpClientClass = Java.use('com.immomo.momo.protocol.http.a.a')
+    return HttpClientClass.$new()
+  }
 
   rpc.exports = {
-    comments: function(feedId) {
-      Java.perform(function() {
+    comments: (feedId) => {
+      Java.perform(() => {
         setup(feedId)
       })
-      return v_comments
+      return commentsData
     }
   }

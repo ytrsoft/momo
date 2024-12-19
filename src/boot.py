@@ -37,12 +37,6 @@ def comments(id):
     result = script.exports.comments(id)
     return jsonify(result)
 
-@app.route('/history', methods=['GET'])
-def history():
-    script = momo.load('history')
-    result = script.exports.history()
-    return jsonify(result)
-
 @app.route('/post', methods=['POST'])
 def post():
     data = request.get_json()

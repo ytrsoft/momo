@@ -1,31 +1,30 @@
-  var v_timeline
+var timelineData
 
-  function setup(remoteid) {
-    const url = 'https://api.immomo.com/v1/feed/user/timeline'
-    const targetClass = Java.use('com.immomo.momo.protocol.http.a.a')
-    const http = targetClass.$new()
-    const args = generateParams(remoteid)
-    const response = http.doPost(url, args)
-    v_timeline = JSON.parse(response).data
-  }
+function setup(remoteId) {
+  const url = 'https://api.immomo.com/v1/feed/user/timeline'
+  const requestParams = createRequestParams(remoteId)
+  const httpClient = createHttpClient()
+  const response = httpClient.doPost(url, requestParams)
+  timelineData = JSON.parse(response).data
+}
 
-  function generateParams(remoteid) {
-    const LinkedHashMap = Java.use('java.util.LinkedHashMap')
-    const root = LinkedHashMap.$new()
-    root.put('ish265', '1')
-    root.put('h265_level', '1')
-    root.put('remoteid', remoteid)
-    root.put('index', '0')
-    root.put('count', '10')
-    root.put('source', 'profile')
-    return root
+function createRequestParams(remoteId) {
+  const LinkedHashMap = Java.use('java.util.LinkedHashMap')
+  const params = LinkedHashMap.$new()
+  params.put('remoteid', remoteId)
+  return params
+}
+
+function createHttpClient() {
+  const HttpClientClass = Java.use('com.immomo.momo.protocol.http.a.a')
+  return HttpClientClass.$new()
 }
 
 rpc.exports = {
-  timeline: function(remoteid) {
-    Java.perform(function() {
-      setup(remoteid)
+  timeline: (remoteId) => {
+    Java.perform(() => {
+        setup(remoteId)
     })
-    return v_timeline
+    return timelineData
   }
 }
