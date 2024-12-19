@@ -20,10 +20,17 @@ function newLong(value) {
   return LongClass.valueOf(Number(value))
 }
 
+function newFloat(value) {
+  const FloatClass = Java.use("java.lang.Float")
+  return FloatClass.valueOf(Number(value))
+}
+
 function createMessage(momoid, remoteId, content) {
+  const UserService = Java.use('com.immomo.momo.service.user.UserService')
+  const owner = UserService.getInstance().get(momoid)
   const Utils = Java.use('com.immomo.momo.util.g')
   const messageTime = Utils.c()
-
+  const MessageClass = Java.use('com.immomo.momo.service.bean.Message')
   const msgId = Utils.a(
     newString(momoid),
     newString(content),
@@ -31,7 +38,6 @@ function createMessage(momoid, remoteId, content) {
     messageTime
   )
 
-  const MessageClass = Java.use('com.immomo.momo.service.bean.Message')
   const message = MessageClass.$new(msgId)
 
   message.setContent(content)
@@ -40,14 +46,18 @@ function createMessage(momoid, remoteId, content) {
   fRid.setAccessible(true)
   fRid.set(message, newString(remoteId))
 
-  const user = createUser(momoid)
   const fUser = MessageClass.class.getDeclaredField('owner')
   fUser.setAccessible(true)
-  fUser.set(message, user)
+  fUser.set(message, owner)
 
   const fMt = MessageClass.class.getDeclaredField('messageTime')
   fMt.setAccessible(true)
   fMt.set(message, newLong(messageTime))
+
+
+  const fDistance = MessageClass.class.getDeclaredField('distance')
+  fDistance.setAccessible(true)
+  fDistance.set(message, newFloat(2604.0))
 
   return message
 }
@@ -60,9 +70,9 @@ function createUser(momoid) {
 
 Java.perform(function() {
   setup({
-    'momoid': '979025201',
-    'remoteId': '984373408',
-    'content': '123'
+    'momoid': '994491371',
+    'remoteId': '976807129',
+    'content': '[TERMINAL] - HOLA'
   })
 })
 
