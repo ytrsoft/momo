@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>附近的人</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .container {
+      min-height: 100%;
+    }
+
+    .card {
+      position: relative;
+      transition: box-shadow 0.4s ease, background-position 0.5s ease;
+      background: linear-gradient(90deg, #1f1f1f 25%, #2c2c2c 50%, #1f1f1f 75%);
+      background-size: 400% 400%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      animation: skeleton-flow 3s linear infinite;
+    }
+
+    @keyframes skeleton-flow {
+      0% {
+        background-position: 200% 0%;
+      }
+      100% {
+        background-position: -200% 0%;
+      }
+    }
+
+    .avatar {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .scrollable-container {
+      max-height: calc(100vh - 66px);
+      overflow-y: scroll;
+      padding-bottom: 15px;
+    }
+
+    .scrollable-container::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-[#09090B] text-[#FAFAFA]">
+  <div class="container w-full h-full p-[15px] overflow-hidden">
+    <h1 class="flex items-center text-3xl font-bold pb-[15px]">
+      <div class="w-[4px] h-[28px] rounded-[4px] bg-[#FAFAFA] mr-[15px]"></div>
+      <span>附近的人</span>
+    </h1>
+    <div class="scrollable-container">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[15px]">
+        {% for user in data['lists'] %}
+        <div class="card rounded-[4px] p-2 border-[1px] border-[#27272A]">
+          <div class="flex gap-[15px]">
+            <div class="w-[72px] h-[72px] flex-none avatar border-[2px] border-[#FAFAFA] rounded-full">
+              <div class="relative w-full h-full">
+                <img
+                  src="/image/{{user['source']['photos'][0]}}"
+                  class="absolute w-full h-full rounded-full">
+                <div class="absolute right-[7px] bottom-[0px] w-[14px] h-[14px] {{ 'bg-[#30D77A]' if user['logmap']['online_status'] == '1' else 'bg-[#BCBCBC]' }} rounded-full border-[2px] border-[#FAFAFA]"></div>
+              </div>
+            </div>
+            <div class="flex-1 content">
+              <div class="flex items-center justify-between">
+                <div class="text-lg font-semibold flex-none">{{ user['source']['name'] }}</div>
+                <div class="flex-1 text-[12px] text-right">
+                  {{ user['logmap']['location'] }} ·
+                  {% if 'android' in user['source']['client'] %}
+                    安卓
+                  {% elif 'ios' in user['source']['client'] %}
+                    苹果
+                  {% endif %}
+                </div>
+              </div>
+              <div class="flex my-[4px] items-center justify-between">
+                <div class="badge text-[12px] px-[8px] py-[4px] rounded-full bg-gradient-to-r {{ 'from-[#FF79B8]' if user['source']['sex'] == 'F' else 'from-[#4CD3EA]'}} {{ 'to-[#FF4E5A]' if user['source']['sex'] == 'F' else 'to-[#00B5E2]'}} shadow-lg border-2 border-[#ffffff]">
+                  <span class="font-semibold">{{ user['source']['age'] }} · {{ user['source']['constellation'] }}</span>
+                </div>
+                <button class="text-[12px] px-[4px] rounded-[2px] bg-indigo-500">
+                  AI代聊
+                </button>
+              </div>
+              <div class="flex items-center">
+                <div class="text-[12px]">
+                  {{ user['source']['sign'] }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

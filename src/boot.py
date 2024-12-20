@@ -3,10 +3,16 @@ from flask_cors import CORS
 from momo import Momo
 import requests
 
-momo = Momo(6396)
+momo = Momo(5773)
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/', methods=['GET'])
+def nearly_view():
+    script = momo.load('nearly')
+    result = script.exports.nearly()
+    return render_template('index.html', data=result)
 
 @app.route('/profile/<id>', methods=['GET'])
 def profile(id):
@@ -19,12 +25,6 @@ def nearly():
     script = momo.load('nearly')
     result = script.exports.nearly()
     return jsonify(result)
-
-@app.route('/nearly.html', methods=['GET'])
-def nearly_view():
-    script = momo.load('nearly')
-    result = script.exports.nearly()
-    return render_template('nearly.html', data=result)
 
 @app.route('/news', methods=['GET'])
 def news():
