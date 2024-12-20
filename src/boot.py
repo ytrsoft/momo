@@ -1,8 +1,9 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, Response, render_template
 from flask_cors import CORS
 from momo import Momo
+import requests
 
-momo = Momo(2469)
+momo = Momo(6396)
 
 app = Flask(__name__)
 CORS(app)
@@ -61,12 +62,8 @@ def post():
 def image(id):
     script = momo.load('image')
     result = script.exports.image(id)
-    return jsonify(result)
+    image = requests.get(result, stream=True)
+    return Response(image.content, content_type=image.headers['Content-Type'])
 
 if __name__ == '__main__':
-    app.run(
-        host='localhost',
-        port=8080,
-        threaded=True,
-        debug=True
-    )
+    app.run(host='localhost', port=8080, threaded=True, debug=True)

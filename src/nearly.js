@@ -12,12 +12,12 @@ function setup() {
 function createRequestParams() {
   const LinkedHashMap = Java.use('java.util.LinkedHashMap')
   const params = LinkedHashMap.$new()
-  params.put('online_time', '1')
+  // params.put('online_time', '1')
   params.put('lat', '28.196451')
   params.put('lng', '112.977301')
   params.put('age_min', '18')
   params.put('age_max', '100')
-  params.put('sex', 'F')
+  // params.put('sex', 'F')
   return params
 }
 
