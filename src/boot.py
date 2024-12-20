@@ -1,8 +1,8 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from momo import Momo
 
-momo = Momo(7507)
+momo = Momo(2469)
 
 app = Flask(__name__)
 CORS(app)
@@ -18,6 +18,12 @@ def nearly():
     script = momo.load('nearly')
     result = script.exports.nearly()
     return jsonify(result)
+
+@app.route('/nearly.html', methods=['GET'])
+def nearly_view():
+    script = momo.load('nearly')
+    result = script.exports.nearly()
+    return render_template('nearly.html', data=result)
 
 @app.route('/news', methods=['GET'])
 def news():
@@ -51,5 +57,16 @@ def post():
     result = script.exports.post(msg)
     return jsonify(result)
 
+@app.route('/image/<id>', methods=['GET'])
+def image(id):
+    script = momo.load('image')
+    result = script.exports.image(id)
+    return jsonify(result)
+
 if __name__ == '__main__':
-    app.run(host='localhost', port=8080, threaded=True)
+    app.run(
+        host='localhost',
+        port=8080,
+        threaded=True,
+        debug=True
+    )

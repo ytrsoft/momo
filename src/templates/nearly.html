@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>附近人</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a202c, #2d3748);
+      font-family: 'Roboto', sans-serif;
+      color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .card {
+      border-radius: 12px;
+      padding: 20px;
+      background-color: #2d3748;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .card-header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #4c51bf;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #f8f8f8;
+    }
+
+    .container {
+      margin: 0 auto;
+      padding: 30px;
+      max-width: 1200px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .button {
+      background-color: #3b82f6;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      width: 100%;
+      margin-top: 15px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .button:hover {
+      background-color: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 15px;
+      }
+
+      .name {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="grid">
+      {% for user in data['lists'] %}
+      <div class="card">
+        <div class="card-header">
+          <div class="w-16 h-16 bg-gray-400 rounded-full border-2 border-indigo-500 shadow-lg">
+            <img src="{{ user['source']['avatar_url'] }}" alt="{{ user['source']['name'] }}" class="w-16 h-16 rounded-full object-cover opacity-0">
+          </div>
+          <div>
+            <h2 class="name">{{ user['source']['name'] }}</h2>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+
+</html>
