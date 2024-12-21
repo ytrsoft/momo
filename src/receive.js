@@ -78,8 +78,9 @@ function toJSON(instance) {
 }
 
 Java.perform(() => {
-  const MessageSender = Java.use('com.immomo.momo.mvp.message.task.c')
-  const Message = MessageSender.a.overload('com.immomo.momo.service.bean.Message')
+  const MessageServiceHelper = Java.use('com.immomo.momo.service.sessions.f')
+  const Message = MessageServiceHelper.e.overload('com.immomo.momo.service.bean.Message')
+
   Message.implementation = function(message) {
     console.log('[MSG]', JSON.stringify(toJSON(message)))
     this.a(message)
