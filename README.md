@@ -45,3 +45,9 @@ MOMO
   # 启动
   ./sudo
 ```
+#### 其他命令
+
+```bash
+  # 执行脚本
+  python apply.py http
+```

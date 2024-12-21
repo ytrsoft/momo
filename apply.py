@@ -22,8 +22,7 @@ def get_pid():
 
 def execute(script):
     pid = get_pid()
-    if not script.endswith('.js'):
-        script += '.js'
+    script += '.js'
     script_path = os.path.join(os.getcwd(), script)
     subprocess.run(
         ['frida', '-U', '-p', str(pid), '-l', script_path],
