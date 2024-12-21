@@ -1,8 +1,10 @@
 import frida
+from apply import get_pid
 
 class Momo:
 
-    def __init__(self, pid):
+    def __init__(self):
+        pid = int(get_pid())
         self.device = frida.get_usb_device()
         self.session = self.device.attach(pid)
         self.scripts = {}
