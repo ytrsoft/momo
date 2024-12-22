@@ -1,5 +1,3 @@
-let global
-
 const WRAPS = [
   'Byte', 'Short', 'Integer', 'Long', 'Float', 'Double', 'Character', 'Boolean', 'String'
 ]
@@ -21,7 +19,7 @@ const BASE_URL = 'https://api.immomo.com'
 const API = {
   NEWS: `${BASE_URL}/v2/feed/nearbyv2/lists`,
   COMMENTS: `${BASE_URL}/v2/feed/comment/comments`,
-  TIMELINE: `${BASE_URL}v1/feed/user/timeline`,
+  TIMELINE: `${BASE_URL}/v1/feed/user/timeline`,
   PROFILE: `${BASE_URL}/v3/user/profile/info`,
   NEARLY: `${BASE_URL}/v2/nearby/people/lists`
 }
@@ -100,48 +98,61 @@ const newLinkedHashMap = (args) => {
 }
 
 const makePostRequest = (url, params) => {
+  console.log(url, params)
   const body = newLinkedHashMap(params)
   const HttpClient = Java.use(PKGS.HTTP_CLIENT)
   const instance = HttpClient.$new()
   const response = instance.doPost(url, body)
-  global = JSON.parse(response).data
+  return JSON.parse(response).data
 }
 
 const setup = (handle) => {
+  let value
   Java.perform(() => {
-    handle && handle(ref)
+    value = handle()
   })
-  return global
+  return value
 }
 
-const setupPostRequest = (api, body) => {
-  setup(() => {
-    makePostRequest(api, body)
+const request = (api, body) => {
+  return setup(() => {
+    return makePostRequest(api, body)
   })
 }
 
-const nearby = (params) => {
-  setupPostRequest(API.NEARLY, params)
+const nearly = () => {
+  return request(API.NEARLY, {
+    online_time: '1',
+    lat: '28.196451',
+    lng: '112.977301',
+    age_min: '18',
+    age_max: '100',
+    sex: 'F'
+  })
 }
 
-const news = (params) => {
-  setupPostRequest(API.NEWS, params)
+const news = () => {
+  return request(API.NEWS, {
+    lat: '28.196451',
+    lng: '112.977301',
+    count: '20'
+  })
 }
 
 const timeline = (id) => {
-  setupPostRequest(API.NEWS, {
+  return request(API.TIMELINE, {
     remoteid: id
   })
 }
 
 const profile = (id) => {
-  setupPostRequest(API.NEWS, {
+  return request(API.PROFILE, {
     remoteid: id
   })
 }
 
 const comments = (params) => {
-  setupPostRequest(API.NEWS, {
+  return request(API.COMMENTS, {
     remoteid: id,
     sort_type: 'early',
     index: params?.index,
@@ -150,15 +161,15 @@ const comments = (params) => {
 }
 
 const image = (id) => {
-  setup((ref) => {
-    const MoliveKit = Java.use(PKGS.MoliveKit)
-    ref.value = MoliveKit.e(id)
+  return setup(() => {
+    const MoliveKit = Java.use(PKGS.IMAGE_UTIL)
+    return MoliveKit.e(id)
   })
 }
 
 rpc.exports = {
   image,
-  nearby,
+  nearly,
   news,
   timeline,
   profile,
