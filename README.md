@@ -15,7 +15,7 @@ MOMO
   # 查看进程
   frida-ps -U
   # 启动脚本 进程ID 脚本文件
-  frida -U -p 3607 -l http.js
+  frida -U -p 6033 -l http.js
 ```
 
 #### Shell命令
@@ -50,4 +50,14 @@ MOMO
 ```bash
   # 执行脚本
   python apply.py http
+```
+
+#### 发送霞浦县哦
+
+```json
+{
+   "momoid": "976807129",
+   "remoteId": "994491371",
+   "content": "该消息由测试组发送"
+}
 ```

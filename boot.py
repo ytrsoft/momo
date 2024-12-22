@@ -1,45 +1,66 @@
-from flask import Flask, request, jsonify, Response
-from flask_cors import CORS
-from flask_socketio import SocketIO
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
+import requests
+import json
 from rpc import makeRPC
 
-import requests
+app = FastAPI()
 
-app = Flask(__name__)
-CORS(app)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 momo = makeRPC()
 
-@app.route('/profile/<id>', methods=['GET'])
-def profile(id):
+def on_message(body, _):
+    print(body)
+
+momo.on('message', on_message)
+
+momo.exports_sync.receive()
+
+@app.get('/profile/{id}')
+async def profile(id):
     result = momo.exports.profile(id)
-    return jsonify(result)
+    return JSONResponse(content=result)
 
-@app.route('/timeline/<id>', methods=['GET'])
-def timeline(id):
+@app.get('/timeline/{id}')
+async def timeline(id):
     result = momo.exports.timeline(id)
-    return jsonify(result)
+    return JSONResponse(content=result)
 
-@app.route('/comments/<id>', methods=['GET'])
-def comments(id):
+@app.get('/comments/{id}')
+async def comments(id):
     result = momo.exports.comments(id)
-    return jsonify(result)
+    return JSONResponse(content=result)
 
-@app.route('/nearly', methods=['GET'])
-def nearly():
+@app.get('/nearly')
+async def nearly():
     result = momo.exports.nearly()
-    return jsonify(result)
+    return JSONResponse(content=result)
 
-@app.route('/news', methods=['GET'])
-def news():
+@app.get('/news')
+async def news():
     result = momo.exports.news()
-    return jsonify(result)
+    return JSONResponse(content=result)
 
-@app.route('/image/<id>', methods=['GET'])
-def image(id):
+@app.post('/post')
+async def post(request: Request):
+    body = await request.json()
+    result = momo.exports_sync.post(body)
+    return JSONResponse(content=result)
+
+@app.get('/image/{id}')
+async def image(id):
     result = momo.exports.image(id)
     image = requests.get(result, stream=True)
-    return Response(image.content, content_type=image.headers['Content-Type'])
+    return StreamingResponse(image.iter_content(chunk_size=1024), media_type=image.headers['Content-Type'])
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=8080, threaded=True)
+    import uvicorn
+    uvicorn.run(app, host='localhost', port=8080)
