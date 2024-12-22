@@ -5,7 +5,7 @@ def readScript(name):
     with open(f"{name}.js", 'r', encoding='utf8') as f:
         return f.read()
 
-def createRpc():
+def makeRPC():
     pid = int(get_pid())
     device = frida.get_usb_device()
     session = device.attach(pid)

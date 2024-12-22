@@ -14,8 +14,8 @@ MOMO
   frida --version
   # 查看进程
   frida-ps -U
-  # 启动脚本 端口 脚本文件
-  frida -U -p 4495 -l http.js
+  # 启动脚本 进程ID 脚本文件
+  frida -U -p 3607 -l http.js
 ```
 
 #### Shell命令
@@ -50,4 +50,13 @@ MOMO
 ```bash
   # 执行脚本
   python apply.py http
+```
+#### 常用参数
+
+
+```javascript
+  const settings = {
+    lng: '112.977301' // 经度
+    lat: '28.196451', // 纬度
+  }
 ```
