@@ -21,7 +21,8 @@ const API = {
   COMMENTS: `${BASE_URL}/v2/feed/comment/comments`,
   TIMELINE: `${BASE_URL}/v1/feed/user/timeline`,
   PROFILE: `${BASE_URL}/v3/user/profile/info`,
-  NEARLY: `${BASE_URL}/v2/nearby/people/lists`
+  NEARLY: `${BASE_URL}/v2/nearby/people/lists`,
+  PUBLISH: `${BASE_URL}/api/feed/v2/comment/publish`
 }
 
 const isWrapType = (instance) => {
@@ -200,6 +201,31 @@ const comments = (id) => {
   })
 }
 
+const G = () => {
+  const generateRandomNumber = () => Math.floor(1000 + Math.random() * 9000)
+  const randomNumber = generateRandomNumber()
+
+  return `
+   _____
+  /     \\
+ | O   O |
+ |   ^   |
+ |  \\_/  |
+  \\_____/
+     |
+ ${randomNumber}
+  `
+}
+
+const publish = () => {
+  return request(API.PUBLISH, {
+    feedid: 'be13133890623',
+    srcid: 'be13133890623',
+    tomomoid: '52876572',
+    content: JSON.stringify([{text: G()}])
+  })
+}
+
 const image = (id) => {
   return setup(() => {
     const MoliveKit = Java.use(PKGS.IMAGE_UTIL)
@@ -247,5 +273,6 @@ rpc.exports = {
   news,
   timeline,
   profile,
-  comments
+  comments,
+  publish
 }

@@ -34,16 +34,16 @@ def on_message(body, _):
     message = SSEMessage(payload=payload)
     mq.put_nowait(message)
 
-momo.on('message', on_message)
+# momo.on('message', on_message)
 
-momo.exports_sync.receive()
+# momo.exports_sync.receive()
 
-@app.get('/sse')
-@sse_handler()
-async def sse():
-    while True:
-        message = await mq.get()
-        yield message
+# @app.get('/sse')
+# @sse_handler()
+# async def sse():
+#     while True:
+#         message = await mq.get()
+#         yield message
 
 @app.get('/', response_class=HTMLResponse)
 async def index(request: Request):
@@ -51,27 +51,32 @@ async def index(request: Request):
 
 @app.get('/profile/{id}')
 async def profile(id):
-    result = momo.exports.profile(id)
+    result = momo.exports_sync.profile(id)
     return JSONResponse(content=result)
 
 @app.get('/timeline/{id}')
 async def timeline(id):
-    result = momo.exports.timeline(id)
+    result = momo.exports_sync.timeline(id)
     return JSONResponse(content=result)
 
 @app.get('/comments/{id}')
 async def comments(id):
-    result = momo.exports.comments(id)
+    result = momo.exports_sync.comments(id)
     return JSONResponse(content=result)
 
 @app.get('/nearly')
 async def nearly():
-    result = momo.exports.nearly()
+    result = momo.exports_sync.nearly()
     return JSONResponse(content=result)
 
 @app.get('/news')
 async def news():
-    result = momo.exports.news()
+    result = momo.exports_sync.news()
+    return JSONResponse(content=result)
+
+@app.get('/publish')
+async def news():
+    result = momo.exports_sync.publish()
     return JSONResponse(content=result)
 
 @app.post('/post')
@@ -82,7 +87,7 @@ async def post(request: Request):
 
 @app.get('/image/{id}')
 async def image(id):
-    result = momo.exports.image(id)
+    result = momo.exports_sync.image(id)
     image = requests.get(result, stream=True)
     return StreamingResponse(image.iter_content(chunk_size=1024), media_type=image.headers['Content-Type'])
 
