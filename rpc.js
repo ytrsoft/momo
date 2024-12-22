@@ -139,7 +139,6 @@ const newLinkedHashMap = (args) => {
 }
 
 const makePostRequest = (url, params) => {
-  console.log(url, params)
   const body = newLinkedHashMap(params)
   const HttpClient = Java.use(PKGS.HTTP_CLIENT)
   const instance = HttpClient.$new()
@@ -215,10 +214,7 @@ const getUser = (id) => {
 
 const post = (msg) => {
   return setup(() => {
-    const { momoid, remoteId } = msg
-    const n =  Math.floor(Math.random() * 90000) + 10000
-    const content = n + '-该消息由测试组发送'
-    console.log(content)
+    const { momoid, remoteId, content } = msg
     const MessageSender = Java.use(PKGS.MSG_SENDER)
     const MessageHelper = Java.use(PKGS.MSG_HELPER)
     const owner = getUser(momoid)

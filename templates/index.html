@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时消息</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        /* 隐藏滚动条，但仍保留滚动功能 */
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* 修改标题颜色和渐变效果 */
+        h1 {
+            background-image: linear-gradient(to right, #fff, #ccc);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden">
+
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <div class="bg-opacity-90 bg-gray-800 shadow-2xl rounded-lg w-full max-w-4xl p-8 space-y-6">
+
+            <h1 class="text-4xl font-bold transition-all duration-500 transform hover:scale-110 hover:text-gray-300">
+                陌陌消息实况
+            </h1>
+
+            <div id="message-container" class="space-y-4 overflow-y-auto max-h-[70vh]">
+            </div>
+
+            <div id="loading" class="hidden text-center text-blue-400">
+                <p class="animate-pulse">正在接收数据...</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+        })
+
+        const messageContainer = document.getElementById('message-container')
+        const loadingIndicator = document.getElementById('loading')
+        const receivedMsgIds = new Set()
+
+        function loadCachedMessages() {
+            const cachedMessages = JSON.parse(localStorage.getItem('messages') || '[]')
+            cachedMessages.forEach(message => {
+                displayMessage(message)
+            })
+        }
+
+        function displayMessage(message) {
+            const messageElement = document.createElement('div')
+            messageElement.classList.add(
+                'bg-gray-700', 'border', 'border-gray-600',
+                'rounded-xl', 'p-6', 'shadow-xl', 'hover:shadow-2xl', 'transition-all', 'transform',
+                'duration-500', 'ease-in-out', 'hover:scale-105'
+            )
+            messageElement.setAttribute('data-aos', 'fade-up')
+            messageElement.setAttribute('data-aos-delay', '200')
+
+            const formattedDate = new Date(message.timestamp).toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            })
+
+            const formattedMessage = `[${message.msgId}] — ${message.content}`
+
+            messageElement.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <p class="text-gray-100 text-xl font-semibold">${formattedMessage}</p>
+                    <p class="text-gray-400 text-sm">${formattedDate}</p>
+                </div>
+            `
+
+            messageContainer.appendChild(messageElement)
+        }
+
+        function saveMessage(message) {
+            const cachedMessages = JSON.parse(localStorage.getItem('messages') || '[]')
+            cachedMessages.push(message)
+            localStorage.setItem('messages', JSON.stringify(cachedMessages))
+        }
+
+        const eventSource = new EventSource('/sse')
+
+        eventSource.onmessage = (event) => {
+            loadingIndicator.classList.add('hidden')
+            const data = JSON.parse(event.data)
+            const payload = data.payload.replaceAll("'", "\"")
+            const message = JSON.parse(payload)
+
+            if (receivedMsgIds.has(message.msgId)) {
+                return
+            }
+
+            receivedMsgIds.add(message.msgId)
+            displayMessage(message)
+            saveMessage(message)
+        }
+
+        eventSource.onerror = () => {
+            loadingIndicator.classList.remove('hidden')
+            loadingIndicator.innerHTML = "<p class='text-red-400'>出现未知错误</p>"
+        }
+
+        window.onload = loadCachedMessages
+    </script>
+</body>
+
+</html>
