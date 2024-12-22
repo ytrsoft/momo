@@ -20,6 +20,11 @@ def timeline(id):
     result = momo.exports.timeline(id)
     return jsonify(result)
 
+@app.route('/comments/<id>', methods=['GET'])
+def comments(id):
+    result = momo.exports.comments(id)
+    return jsonify(result)
+
 @app.route('/nearly', methods=['GET'])
 def nearly():
     result = momo.exports.nearly()

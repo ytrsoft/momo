@@ -151,12 +151,12 @@ const profile = (id) => {
   })
 }
 
-const comments = (params) => {
+const comments = (id) => {
   return request(API.COMMENTS, {
-    remoteid: id,
+    feedid: id,
     sort_type: 'early',
-    index: params?.index,
-    count: params?.count
+    index: '0',
+    count: '50'
   })
 }
 
