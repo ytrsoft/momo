@@ -1,3 +1,5 @@
+let global
+
 const WRAPS = [
   'Byte', 'Short', 'Integer', 'Long', 'Float', 'Double', 'Character', 'Boolean', 'String'
 ]
@@ -74,7 +76,6 @@ const serialize = (instance) => {
   const result = {}
   const name = getInstName(instance)
   const fields = getFields(instance)
-
   fields.forEach((field) => {
     if (!isStatic(field)) {
       const value = getValue(instance, field)
@@ -86,6 +87,80 @@ const serialize = (instance) => {
       }
     }
   })
-
   return result
+}
+
+const newLinkedHashMap = (args) => {
+  const LinkedHashMap = Java.use(PKGS.LINKED_HASH_MAP)
+  const instance = LinkedHashMap.$new()
+  for (const key in args) {
+    instance.put(key, args[key])
+  }
+  return instance
+}
+
+const makePostRequest = (url, params) => {
+  const body = newLinkedHashMap(params)
+  const HttpClient = Java.use(PKGS.HTTP_CLIENT)
+  const instance = HttpClient.$new()
+  const response = instance.doPost(url, body)
+  global = JSON.parse(response).data
+}
+
+const setup = (handle) => {
+  Java.perform(() => {
+    handle && handle(ref)
+  })
+  return global
+}
+
+const setupPostRequest = (api, body) => {
+  setup(() => {
+    makePostRequest(api, body)
+  })
+}
+
+const nearby = (params) => {
+  setupPostRequest(API.NEARLY, params)
+}
+
+const news = (params) => {
+  setupPostRequest(API.NEWS, params)
+}
+
+const timeline = (id) => {
+  setupPostRequest(API.NEWS, {
+    remoteid: id
+  })
+}
+
+const profile = (id) => {
+  setupPostRequest(API.NEWS, {
+    remoteid: id
+  })
+}
+
+const comments = (params) => {
+  setupPostRequest(API.NEWS, {
+    remoteid: id,
+    sort_type: 'early',
+    index: params?.index,
+    count: params?.count
+  })
+}
+
+const image = (id) => {
+  setup((ref) => {
+    const MoliveKit = Java.use(PKGS.MoliveKit)
+    ref.value = MoliveKit.e(id)
+  })
+}
+
+rpc.exports = {
+  image,
+  nearby,
+  news,
+  timeline,
+  profile,
+  comments
 }

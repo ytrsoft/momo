@@ -9,6 +9,7 @@ def makeRPC():
     pid = int(get_pid())
     device = frida.get_usb_device()
     session = device.attach(pid)
-    code = readScript('rpc.js')
+    code = readScript('rpc')
     script = session.create_script(code)
     script.load()
+    return script

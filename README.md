@@ -51,12 +51,3 @@ MOMO
   # 执行脚本
   python apply.py http
 ```
-#### 常用参数
-
-
-```javascript
-  const settings = {
-    lng: '112.977301' // 经度
-    lat: '28.196451', // 纬度
-  }
-```
