@@ -10,7 +10,7 @@ const PKGS = {
   MSG_SENDER: 'com.immomo.momo.mvp.message.task.c',
   MSG_BEAN: 'com.immomo.momo.service.bean.Message',
   USER_SERVICE: 'com.immomo.momo.service.user.UserService',
-  MSG_CACHE: 'com.immomo.momo.messages.b.b',
+  MSG_SERVICE: 'com.immomo.momo.messages.service.l',
   IMAGE_UTIL: 'com.immomo.molive.foundation.util.ay'
 }
 
@@ -186,6 +186,12 @@ const timeline = (id) => {
   })
 }
 
+const profileApi = (id) => {
+  return makePostRequest(API.PROFILE, {
+    remoteid: id
+  })
+}
+
 const profile = (id) => {
   return request(API.PROFILE, {
     remoteid: id
@@ -210,8 +216,8 @@ const G = () => {
   /     \\
  | O   O |
  |   ^   |
- |  \\_/  |
-  \\_____/
+ |  \\_/ |
+ \\_____/
      |
  ${randomNumber}
   `
@@ -254,13 +260,37 @@ const post = (msg) => {
   })
 }
 
+const getUserProfile = (id) => {
+  const user = {}
+  const info = profileApi(id)
+  const profile = info.profile
+  user.momoid = profile.momoid
+  user.age = profile.age
+  user.sex = profile.sex
+  user.constellation = profile.constellation
+  user.name = profile.name
+  user.photo = profile.photos[0]
+  user.location = profile.show_location
+  user.status = profile.online_status
+  return user
+}
+
 const receive = () => {
   return setup(() => {
-    const ChatMsgMemCache = Java.use(PKGS.MSG_CACHE)
-    const Message = ChatMsgMemCache.a.overload(PKGS.MSG_BEAN)
-    Message.implementation = function(message) {
-      send(serialize(message))
-      return this.a(message)
+    const SingleMsgService = Java.use(PKGS.MSG_SERVICE)
+    const overload = SingleMsgService.a.overloads[21]
+    overload.implementation = function(...args) {
+      const result = {}
+      const message = serialize(args[0])
+      const id = message.remoteId
+      const profile = getUserProfile(id)
+      result.remoteUser = profile
+      result.msgId = message.msgId
+      result.content = message.content
+      result.momoid = message.myMomoId
+      result.timestamp = message.timestamp
+      send(result)
+      return this.a.apply(this, args)
     }
   })
 }

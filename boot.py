@@ -1,16 +1,8 @@
-import asyncio
-import random
-from typing import Optional
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse, StreamingResponse, HTMLResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.templating import Jinja2Templates
-from fastapi_sse import sse_handler
-from pydantic import BaseModel
 import requests
 from rpc import rpc
-
-mq = asyncio.Queue(maxsize=10)
 
 app = FastAPI()
 
@@ -22,32 +14,7 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
-templates = Jinja2Templates(directory='templates')
-
 momo = rpc()
-
-class SSEMessage(BaseModel):
-    payload: str
-
-def on_message(body, _):
-    payload = str(body['payload'])
-    message = SSEMessage(payload=payload)
-    mq.put_nowait(message)
-
-# momo.on('message', on_message)
-
-# momo.exports_sync.receive()
-
-# @app.get('/sse')
-# @sse_handler()
-# async def sse():
-#     while True:
-#         message = await mq.get()
-#         yield message
-
-@app.get('/', response_class=HTMLResponse)
-async def index(request: Request):
-    return templates.TemplateResponse('index.html', {'request': request})
 
 @app.get('/profile/{id}')
 async def profile(id):
@@ -93,4 +60,4 @@ async def image(id):
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host='localhost', port=8080)
+    uvicorn.run(app, host='localhost', port=8081)
