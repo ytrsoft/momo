@@ -47,7 +47,7 @@ async def sse():
 
 @app.get('/', response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse('sse.html', {'request': request})
+    return templates.TemplateResponse('ws.html', {'request': request})
 
 @app.get('/image/{id}')
 async def image(id):
