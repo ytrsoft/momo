@@ -8,7 +8,7 @@ from pydantic import BaseModel
 import requests
 from rpc import rpc
 
-mq = asyncio.Queue(maxsize=10)
+mq = asyncio.Queue(maxsize=1024)
 
 app = FastAPI()
 
@@ -39,8 +39,10 @@ momo.exports_sync.receive()
 @app.get('/sse')
 @sse_handler()
 async def sse():
-    while True:
-        message = await mq.get()
+    if mq.qsize() == 0:
+        yield SSEMessage(payload='')
+    else:
+        message = mq.get_nowait()
         yield message
 
 @app.get('/', response_class=HTMLResponse)
