@@ -1,4 +1,5 @@
 import asyncio
+from typing import List
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,12 +26,11 @@ templates = Jinja2Templates(directory='templates')
 momo = rpc()
 
 class SSEMessage(BaseModel):
-    payload: str
+    payload: List[str]
 
 def on_message(body, _):
     payload = str(body['payload'])
-    message = SSEMessage(payload=payload)
-    mq.put_nowait(message)
+    mq.put_nowait(payload)
 
 momo.on('message', on_message)
 
@@ -39,11 +39,14 @@ momo.exports_sync.receive()
 @app.get('/sse')
 @sse_handler()
 async def sse():
-    if mq.qsize() == 0:
-        yield SSEMessage(payload='')
+    if mq.empty():
+        yield SSEMessage(payload=[])
     else:
-        message = mq.get_nowait()
-        yield message
+        takes = []
+        while not mq.empty():
+            message = mq.get_nowait()
+            takes.append(message)
+        yield SSEMessage(payload=takes)
 
 @app.get('/', response_class=HTMLResponse)
 async def index(request: Request):

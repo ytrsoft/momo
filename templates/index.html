@@ -217,20 +217,28 @@
     }, 50)
   }
 
+  const appendTo = (payload) => {
+    const real = payload.replaceAll("'", '"')
+    const message = JSON.parse(real)
+    const card = makeCard()
+    const content = genHTML(message)
+    card.innerHTML = content
+    messageList.appendChild(card)
+    animated(card)
+    messageList.scrollTop = messageList.scrollHeight
+  }
+
   const event = new EventSource('/sse')
 
   event.onmessage = (event) => {
     const payload = JSON.parse(event.data).payload
-    if (payload) {
+    if (payload.length !== 0) {
       checkLoading()
-      const real = payload.replaceAll("'", '"')
-      const message = JSON.parse(real)
-      const card = makeCard()
-      const content = genHTML(message)
-      card.innerHTML = content
-      messageList.appendChild(card)
-      animated(card)
-      messageList.scrollTop = messageList.scrollHeight
+      payload.forEach((item) => {
+        setTimeout(() => {
+          appendTo(item)
+        }, 1000)
+      })
     }
   }
 </script>
