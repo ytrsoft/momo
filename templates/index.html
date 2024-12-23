@@ -115,7 +115,7 @@
           fill="#ffffff" p-id="1502"></path>
       </svg>
     </div>
-    <h1 class="text-3xl font-semibold text-white">消息监控列表</h1>
+    <h1 class="text-3xl font-semibold text-white">陌陌消息列表</h1>
   </div>
   <div class="max-w-2xl mx-auto message-list-container">
     <div class="space-y-4" id="message-list">
@@ -135,26 +135,17 @@
   const loadingSpinner = document.getElementById('loading-spinner')
 
   const makeTime = (timestamp) => {
-    const now = Date.now()
-    const diff = now - timestamp
+      const date = new Date(timestamp)
+      let hours = date.getHours()
+      let minutes = date.getMinutes()
+      let seconds = date.getSeconds()
 
-    const timeUnits = [
-      { label: "秒前", unit: 1000 },
-      { label: "分钟前", unit: 1000 * 60 },
-      { label: "小时前", unit: 1000 * 60 * 60 },
-      { label: "天前", unit: 1000 * 60 * 60 * 24 },
-      { label: "个月前", unit: 1000 * 60 * 60 * 24 * 30 },
-      { label: "年前", unit: 1000 * 60 * 60 * 24 * 365 }
-    ]
+      hours = hours < 10 ? `0${hours}` : hours
+      minutes = minutes < 10 ? `0${minutes}` : minutes
+      seconds = seconds < 10 ? `0${seconds}` : seconds
 
-    for (let { label, unit } of timeUnits) {
-      if (diff < unit) continue
-      return `${Math.floor(diff / unit)}${label}`
-    }
-
-    return '1秒前'
+      return `${hours}:${minutes}:${seconds}`
   }
-
 
   const genHTML = (message) => {
     return `
