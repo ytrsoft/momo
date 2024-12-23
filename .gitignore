@@ -53,3 +53,39 @@ coverage.xml
 # Windows
 Thumbs.db
 Desktop.ini
+
+# Node.js
+# Node modules
+node_modules/
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env
+
+# next.js build output
+.next/
+
+# Nuxt.js build output
+.nuxt/
+
+# TypeScript build output
+dist/
+
+# Svelte build output
+public/build/
+
+# VSCode settings for Node.js
+.vscode/
+
+# Debug logs
+*.log
+
+# npm package-lock
+package-lock.json
+
+# yarn lock file
+yarn.lock
