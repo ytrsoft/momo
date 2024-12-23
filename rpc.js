@@ -281,6 +281,7 @@ const receive = () => {
     const overload = SingleMsgService.a.overloads[21]
     overload.implementation = function(...args) {
       const result = {}
+      console.log(args[0].toString())
       const message = serialize(args[0])
       const id = message.remoteId
       const profile = getUserProfile(id)
@@ -289,7 +290,9 @@ const receive = () => {
       result.content = message.content
       result.momoid = message.myMomoId
       result.timestamp = message.timestamp
-      send(result)
+      if (result.content) {
+        send(result)
+      }
       return this.a.apply(this, args)
     }
   })

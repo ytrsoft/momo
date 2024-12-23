@@ -106,7 +106,7 @@
 </head>
 
 <body class="text-white pb-[16px]">
-  <div class="title flex p-4 items-center">
+  <div class="title bg-[#1a1a1a] flex p-4 items-center fixed top-0 left-0 w-full z-10">
     <div class="mr-2">
       <svg t="1734961839684" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="1501" width="36" height="36">
@@ -117,7 +117,8 @@
     </div>
     <h1 class="text-3xl font-semibold text-white">消息列表</h1>
   </div>
-  <div class="max-w-2xl mx-auto message-list-container">
+
+  <div class="max-w-2xl mx-auto message-list-container pt-[80px]">
     <div class="space-y-4" id="message-list">
       <div class="flex justify-center items-center h-40" id="loading-spinner">
         <div class="flex space-x-2">
@@ -128,28 +129,40 @@
       </div>
     </div>
   </div>
+
 </body>
 
 <script>
+  const body = document.querySelector('body')
   const messageList = document.getElementById('message-list')
   const loadingSpinner = document.getElementById('loading-spinner')
 
   const makeTime = (timestamp) => {
-      const date = new Date(timestamp)
-      let hours = date.getHours()
-      let minutes = date.getMinutes()
-      let seconds = date.getSeconds()
+    const date = new Date(timestamp)
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
 
-      hours = hours < 10 ? `0${hours}` : hours
-      minutes = minutes < 10 ? `0${minutes}` : minutes
-      seconds = seconds < 10 ? `0${seconds}` : seconds
+    hours = hours < 10 ? `0${hours}` : hours
+    minutes = minutes < 10 ? `0${minutes}` : minutes
+    seconds = seconds < 10 ? `0${seconds}` : seconds
 
-      return `${hours}:${minutes}:${seconds}`
+    return `${hours}:${minutes}:${seconds}`
+  }
+
+  const male = () => {
+    return `<svg t="1734983107212" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6772" width="12" height="12"><path d="M804.571428 402.285713l0 237.714285q0 22.820571-16.018286 38.838857t-38.838857 16.018286-38.838857-16.018286-16.018286-38.838857l0-201.142856-36.571428 0 0 521.142855q0 26.258286-18.870857 45.129143t-45.129143 18.870857-45.129143-18.870857-18.870857-45.129143l0-265.142856-36.571428 0 0 265.142856q0 26.258286-18.870857 45.129143t-45.129143 18.870857-45.129143-18.870857-18.870857-45.129143l0-521.142855-36.571428 0 0 201.142856q0 22.820571-16.018286 38.838857t-38.838857 16.018286-38.838857-16.018286-16.018286-38.838857l0-237.714285q0-45.714286 32.036571-77.677714t77.677714-32.036571l365.714284 0q45.714286 0 77.677714 32.036571t32.036571 77.677714zM640 146.285714q0 53.174857-37.449143 90.550857t-90.550857 37.449143-90.550857-37.449143-37.449143-90.550857 37.449143-90.550857 90.550857-37.449143 90.550857 37.449143 37.449143 90.550857z" fill="#D3D3D3" p-id="6773"></path></svg>
+    `
+  }
+
+  const female = () => {
+    return `<svg t="1734982728586" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5450" width="12" height="12"><path d="M877.714284 603.428569q0 22.820571-16.018286 38.838857t-38.838857 16.018286q-29.110857 0-45.714286-24.576l-129.682285-194.852571-25.746286 0 0 75.410285 141.165714 234.861713q5.12 8.557714 5.12 18.870857 0 14.848-10.825143 25.746286t-25.746286 10.825143l-109.714285 0 0 155.428571q0 26.258286-18.870857 45.129143t-45.129143 18.870857l-91.428571 0q-26.258286 0-45.129143-18.870857t-18.870857-45.129143l0-155.428571-109.714285 0q-14.848 0-25.746286-10.825143t-10.825143-25.746286q0-10.313143 5.12-18.870857l141.165714-234.861713 0-75.410285-25.746286 0-129.682285 194.852571q-16.603429 24.576-45.714286 24.576-22.820571 0-38.838857-16.018286t-16.018286-38.838857q0-16.603429 9.142857-30.281143l146.285714-219.428571q41.691428-61.147428 100.571428-61.147428l219.428571 0q58.88 0 100.571428 61.147428l146.285714 219.428571q9.142857 13.677714 9.142857 30.281143zM640 146.285714q0 53.174857-37.449143 90.550857t-90.550857 37.449143-90.550857-37.449143-37.449143-90.550857 37.449143-90.550857 90.550857-37.449143 90.550857 37.449143 37.449143 90.550857z" fill="#D3D3D3" p-id="5451"></path></svg>
+    `
   }
 
   const genHTML = (message) => {
     return `
-      <div class="flex items-center mb-4">
+      <div class="flex items-center mb-2">
         <div class="relative">
           <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-semibold">
             <img class="w-full h-full rounded-full" src="/image/${message.remoteUser.photo}" />
@@ -161,11 +174,10 @@
             <div class="font-semibold text-xl text-white">${message.remoteUser.name}</div>
             <div class="flex items-center space-x-2">
               <div class="px-2 py-0.5 text-xs font-semibold text-white ${message.remoteUser.sex === "M" ? "bg-blue-500" : "bg-pink-500"} rounded-full flex items-center space-x-1">
-                <span class="font-bold">${message.remoteUser.sex === "M" ? "♂" : "♀"}</span>
-                <span>${message.remoteUser.sex === "M" ? "男" : "女"}</span>
+                <span class="font-black">${message.remoteUser.sex === "F" ? female() : male()}</span>
+                <span>${message.remoteUser.age}</span>
               </div>
               <div class="px-2 py-0.5 text-xs font-semibold text-gray-400 bg-gray-700 rounded-full">
-                <span>${message.remoteUser.age}</span>
                 <span>${message.remoteUser.constellation}</span>
               </div>
             </div>
@@ -175,7 +187,7 @@
           </div>
         </div>
       </div>
-      <p class="text-gray-300 mt-2 text-base ml-20 message-content">${message.content}</p>
+      <p class="text-gray-300 text-base ml-20 message-content">${message.content}</p>
     `
   }
 
@@ -214,6 +226,9 @@
         'transition-transform',
         'transition-opacity'
       );
+      setTimeout(() => {
+        window.scrollTo(0, body.clientHeight)
+      }, 50)
     }, 50)
   }
 
@@ -225,7 +240,6 @@
     card.innerHTML = content
     messageList.appendChild(card)
     animated(card)
-    messageList.scrollTop = messageList.scrollHeight
   }
 
   const event = new EventSource('/sse')
@@ -237,7 +251,7 @@
       payload.forEach((item) => {
         setTimeout(() => {
           appendTo(item)
-        }, 1000)
+        }, 0)
       })
     }
   }
