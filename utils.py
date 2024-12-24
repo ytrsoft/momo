@@ -10,7 +10,7 @@ templates = Jinja2Templates(directory='templates')
 
 class SSEMessage(BaseModel):
     payload: List[str]
-
+    
 def message_to(message):
     url = 'http://localhost:8081/post'
     requests.post(url, json=message)
