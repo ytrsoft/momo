@@ -33,7 +33,6 @@ momo_gpt = MomoGPT()
 
 def on_message(message):
     message_to(message)
-    print('[MSG]', '-', str_json(message))
 
 momo_gpt.on('message', on_message)
 
@@ -44,12 +43,12 @@ def on_message(body, _):
     body = body['payload']
     payload = str(body)
     mq.put_nowait(payload)
-    momo_id = body['momoid']
-    if momo_id != login_momo_id:
-        remote_id = body['remoteUser']['momoid']
+    from_id = body['momoid']
+    to_id = body['remoteUser']['momoid']
+    if from_id != login_momo_id:
         message = Message(
-            momo_id=momo_id,
-            remote_id= remote_id,
+            momo_id=to_id,
+            remote_id= from_id,
             content=body['content']
         )
         momo_gpt.post_message(message)
