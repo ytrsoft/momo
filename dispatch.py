@@ -1,5 +1,4 @@
 import asyncio
-import time
 from rpc import rpc
 from mq import MQueueManager
 from gpt import Message, MomoGPT
@@ -25,10 +24,6 @@ class Dispatcher:
               takes.append(message)
           return SSEMessage(payload=takes)
 
-    def __rpc_message__(body):
-      payload = body['payload']
-      print(payload)
-
     def image(self, id):
       result = self.momo.exports_sync.image(id)
       return load_image(result)
@@ -40,8 +35,8 @@ class Dispatcher:
         from_id = payload['momoid']
         to_id = payload['remoteUser']['momoid']
         gpt_message = Message(
-          momo_id=to_id,
-          remote_id=from_id,
+          momo_id=from_id,
+          remote_id=to_id,
           content=payload['content']
         )
         self.mq.gpt_put(gpt_message)

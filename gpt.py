@@ -49,7 +49,7 @@ class MomoGPT:
     def on(self, event: str, callback):
         self.callbacks[event] = callback
 
-    def post_message(self, message: Message, stream = False):
+    def post_message(self, message: Message):
         momoid = message.momo_id
         remote_id = message.remote_id
         content = message.content
@@ -60,7 +60,7 @@ class MomoGPT:
             'messages': [
                 {'role': 'user', 'content': prompt_text}
             ],
-            'stream': stream
+            'stream': False
         })
 
         headers = {
@@ -81,35 +81,3 @@ class MomoGPT:
             print(f'An error occurred: {e}')
         finally:
             conn.close()
-
-    def start_stream(self, prompt_text: str):
-        def stream_handler():
-            payload = json.dumps({
-                'model': self.model,
-                'messages': [
-                    {'role': 'user', 'content': prompt_text}
-                ],
-                'stream': True
-            })
-            headers = {
-                'Authorization': f'Bearer {self.api_key}',
-                'Content-Type': 'application/json'
-            }
-            try:
-                conn = http.client.HTTPSConnection(self.base_url)
-                conn.request('POST', '/v1/chat/completions', payload, headers)
-                res = conn.getresponse()
-                while True:
-                    chunk = res.read(1024)
-                    if not chunk:
-                        break
-                    chunk_data = chunk.decode('utf-8')
-                    if 'message' in self.callbacks:
-                        recv = parse_reply_body(chunk_data)
-                        self.callbacks['message'](recv)
-            except Exception as e:
-                print(f'An error occurred during streaming: {e}')
-            finally:
-                conn.close()
-
-        threading.Thread(target=stream_handler, daemon=True).start()
