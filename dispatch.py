@@ -4,6 +4,8 @@ from mq import MQueueManager
 from gpt import Message, MomoGPT
 from utils import SSEMessage, load_image, message_to
 
+curr_momoid = '976807129'
+
 class Dispatcher:
     def __init__(self, maxsize: int):
         self.mq = MQueueManager(maxsize)
@@ -34,12 +36,13 @@ class Dispatcher:
       if 'momoid' in payload:
         from_id = payload['momoid']
         to_id = payload['remoteUser']['momoid']
-        gpt_message = Message(
-          momo_id=from_id,
-          remote_id=to_id,
-          content=payload['content']
-        )
-        self.mq.gpt_put(gpt_message)
+        if from_id == curr_momoid:
+          gpt_message = Message(
+            momo_id=from_id,
+            remote_id=to_id,
+            content=payload['content']
+          )
+          self.mq.gpt_put(gpt_message)
 
     def receive(self):
       self.momo.on(
