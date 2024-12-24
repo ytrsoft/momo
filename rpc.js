@@ -281,7 +281,6 @@ const receive = () => {
     const overload = SingleMsgService.a.overloads[21]
     overload.implementation = function(...args) {
       const result = {}
-      console.log(args[0].toString())
       const message = serialize(args[0])
       const id = message.remoteId
       const profile = getUserProfile(id)

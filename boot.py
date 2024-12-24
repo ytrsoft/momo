@@ -1,18 +1,9 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse, StreamingResponse
-from fastapi.middleware.cors import CORSMiddleware
-import requests
 from rpc import rpc
+from fastapi import Request
+from fastapi.responses import JSONResponse, StreamingResponse
+from utils import fast_api, load_image, load_template
 
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['*'],
-    allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
-)
+app = fast_api()
 
 momo = rpc()
 
@@ -55,8 +46,7 @@ async def post(request: Request):
 @app.get('/image/{id}')
 async def image(id):
     result = momo.exports_sync.image(id)
-    image = requests.get(result, stream=True)
-    return StreamingResponse(image.iter_content(chunk_size=1024), media_type=image.headers['Content-Type'])
+    return load_image(result)
 
 if __name__ == '__main__':
     import uvicorn
