@@ -8,6 +8,10 @@ from fastapi_sse import sse_handler
 from pydantic import BaseModel
 import requests
 from rpc import rpc
+from gpt import Message, MomoGPT, str_json
+from services import message_to
+
+login_momo_id = '976807129'
 
 mq = asyncio.Queue(maxsize=1024)
 
@@ -25,12 +29,30 @@ templates = Jinja2Templates(directory='templates')
 
 momo = rpc()
 
+momo_gpt = MomoGPT()
+
+def on_message(message):
+    message_to(message)
+    print('[MSG]', '-', str_json(message))
+
+momo_gpt.on('message', on_message)
+
 class SSEMessage(BaseModel):
     payload: List[str]
 
 def on_message(body, _):
-    payload = str(body['payload'])
+    body = body['payload']
+    payload = str(body)
     mq.put_nowait(payload)
+    momo_id = body['momoid']
+    if momo_id != login_momo_id:
+        remote_id = body['remoteUser']['momoid']
+        message = Message(
+            momo_id=momo_id,
+            remote_id= remote_id,
+            content=body['content']
+        )
+        momo_gpt.post_message(message)
 
 momo.on('message', on_message)
 
