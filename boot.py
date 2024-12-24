@@ -1,51 +1,51 @@
 from rpc import rpc
 from fastapi import Request
 from fastapi.responses import JSONResponse
-from utils import fast_api, load_image, load_template
+from utils import fast_app, load_image
 
-app = fast_api()
+app = fast_app()
 
-momo = rpc()
+momo_rpc = rpc()
 
 @app.get('/profile/{id}')
 async def profile(id):
-    result = momo.exports_sync.profile(id)
+    result = momo_rpc.exports_sync.profile(id)
     return JSONResponse(content=result)
 
 @app.get('/timeline/{id}')
 async def timeline(id):
-    result = momo.exports_sync.timeline(id)
+    result = momo_rpc.exports_sync.timeline(id)
     return JSONResponse(content=result)
 
 @app.get('/comments/{id}')
 async def comments(id):
-    result = momo.exports_sync.comments(id)
+    result = momo_rpc.exports_sync.comments(id)
     return JSONResponse(content=result)
 
 @app.get('/nearly')
 async def nearly():
-    result = momo.exports_sync.nearly()
+    result = momo_rpc.exports_sync.nearly()
     return JSONResponse(content=result)
 
 @app.get('/news')
 async def news():
-    result = momo.exports_sync.news()
+    result = momo_rpc.exports_sync.news()
     return JSONResponse(content=result)
 
 @app.get('/publish')
 async def news():
-    result = momo.exports_sync.publish()
+    result = momo_rpc.exports_sync.publish()
     return JSONResponse(content=result)
 
 @app.post('/post')
 async def post(request: Request):
     body = await request.json()
-    result = momo.exports_sync.post(body)
+    result = momo_rpc.exports_sync.post(body)
     return JSONResponse(content=result)
 
 @app.get('/image/{id}')
 async def image(id):
-    result = momo.exports_sync.image(id)
+    result = momo_rpc.exports_sync.image(id)
     return load_image(result)
 
 if __name__ == '__main__':
