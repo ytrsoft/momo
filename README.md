@@ -52,7 +52,7 @@ MOMO
   python apply.py http
 ```
 
-#### 发送霞浦县哦
+#### 发送参数
 
 ```json
 {
