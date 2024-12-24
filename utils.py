@@ -32,8 +32,7 @@ def load_image(url):
     image = requests.get(url, stream=True)
     return StreamingResponse(image.iter_content(chunk_size=1024), media_type=image.headers['Content-Type'])
 
-def fast_app() -> FastAPI:
-    app = FastAPI()
+def CORS(app: FastAPI):
     app.add_middleware(
         CORSMiddleware,
         allow_origins=['*'],

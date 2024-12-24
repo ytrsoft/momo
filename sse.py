@@ -1,35 +1,33 @@
-from rpc import rpc
+import asyncio
+from dispatch import Dispatcher
+from utils import CORS, load_template
+
+from fastapi import FastAPI
 from fastapi import Request
 from fastapi.responses import HTMLResponse
 from fastapi_sse import sse_handler
-from utils import SSEMessage, fast_app, load_image, load_template
-from mq import MQueueManager
+from contextlib import asynccontextmanager
 
-mq = MQueueManager(1024)
+dispatch = Dispatcher(1024)
 
-app = fast_app()
+dispatch.receive()
 
-momo_rpc = rpc()
+@asynccontextmanager
+async def lifespan(_):
+    task = asyncio.create_task(dispatch.consume())
+    try:
+        yield
+    finally:
+        task.cancel()
+        await task
 
-def on_message(body, _):
-    payload = str(body['payload'])
-    mq.rpc_put(payload)
-
-momo_rpc.on('message', on_message)
-
-momo_rpc.exports_sync.receive()
+app = FastAPI(lifespan=lifespan)
+CORS(app)
 
 @app.get('/sse')
 @sse_handler()
 async def sse():
-    if mq.rpc_empty():
-        yield SSEMessage(payload=[])
-    else:
-        takes = []
-        while not mq.rpc_empty():
-            message = mq.rpc_take()
-            takes.append(message)
-        yield SSEMessage(payload=takes)
+    yield dispatch.messages()
 
 @app.get('/', response_class=HTMLResponse)
 async def index(request: Request):
@@ -37,8 +35,7 @@ async def index(request: Request):
 
 @app.get('/image/{id}')
 async def image(id):
-    result = momo_rpc.exports_sync.image(id)
-    return load_image(result)
+    return dispatch.image(id)
 
 if __name__ == '__main__':
     import uvicorn
