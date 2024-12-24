@@ -1,6 +1,6 @@
 from rpc import rpc
 from fastapi import Request
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse
 from utils import fast_api, load_image, load_template
 
 app = fast_api()
