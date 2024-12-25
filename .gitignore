@@ -43,9 +43,30 @@ coverage.xml
 
 # IntelliJ IDEA
 .idea/
+*.iml
+*.ipr
+*.iws
+out/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/libraries/
 
 # JetBrains
 *.iml
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+.mvn/wrapper/maven-wrapper.jar
 
 # macOS
 .DS_Store
@@ -89,3 +110,40 @@ package-lock.json
 
 # yarn lock file
 yarn.lock
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+*.jmod
+hs_err_pid*
+
+# Logs
+*.log
+
+# Eclipse IDE
+.project
+.classpath
+.settings/
+bin/
+
+# NetBeans
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+*.nb-gradle/
+
+# Gradle
+.gradle/
+build/
+
+# Lombok generated files
+.lombok/
+
+# IDEA and Maven specific
+.idea/
+*.iml
+target/
