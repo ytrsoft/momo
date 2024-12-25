@@ -2,6 +2,7 @@ package com.ytrsoft.core;
 
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
+import com.github.unidbg.linux.android.AndroidResolver;
 import com.github.unidbg.memory.Memory;
 
 public class EmulatorManager {
@@ -13,6 +14,8 @@ public class EmulatorManager {
                 .for32Bit()
                 .setProcessName(processName)
                 .build();
+        Memory memory = this.emulator.getMemory();
+        memory.setLibraryResolver(new AndroidResolver(23));
     }
 
     public AndroidEmulator getEmulator() {

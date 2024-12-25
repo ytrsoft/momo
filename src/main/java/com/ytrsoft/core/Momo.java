@@ -1,6 +1,5 @@
 package com.ytrsoft.core;
 
-import com.github.unidbg.linux.android.dvm.DvmClass;
 
 public class Momo extends BaseApk {
 
@@ -17,8 +16,4 @@ public class Momo extends BaseApk {
         return "6ueA4OxIkFLAjNV8Dqkxa4sKqxbSNHu66ueA4OxIkFLAjNV8";
     }
 
-    @Override
-    public DvmClass getDvmClass() {
-        return super.getDvmClass("com.immomo.momo.util.jni.Coded");
-    }
 }

@@ -18,13 +18,15 @@ public abstract class BaseApk {
         apkLoader.loadApk(verbose);
     }
 
-    public DvmClass getDvmClass(String classPath) {
-        return apkLoader.getDvmClass(classPath);
+    public void loadDvmClass(String classPath) {
+        apkLoader.loadDvmClass(classPath);
     }
 
     public void destroy() {
         apkLoader.close();
     }
 
-    public abstract DvmClass getDvmClass();
+    public ApkLoader getApkLoader() {
+        return apkLoader;
+    }
 }

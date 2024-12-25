@@ -3,8 +3,6 @@ package com.ytrsoft.core;
 
 import com.github.unidbg.linux.android.dvm.VM;
 import com.github.unidbg.linux.android.dvm.DvmClass;
-import com.github.unidbg.linux.android.AndroidResolver;
-import com.github.unidbg.memory.Memory;
 
 import java.io.File;
 import java.util.List;
@@ -12,6 +10,7 @@ import java.util.List;
 public class ApkLoader {
 
     private VM vm;
+    private DvmClass dvmClass;
     private final EmulatorManager emulatorManager;
     private final Resource resource;
 
@@ -21,26 +20,25 @@ public class ApkLoader {
     }
 
     public void loadApk(boolean verbose) {
-        Memory memory = emulatorManager.getMemory();
-        memory.setLibraryResolver(new AndroidResolver(23));
-
         vm = emulatorManager.getEmulator().createDalvikVM(resource.getApk());
         vm.setVerbose(verbose);
-
         List<File> soFiles = resource.getSo();
         soFiles.forEach(file -> {
             vm.loadLibrary(file, false).callJNI_OnLoad(emulatorManager.getEmulator());
         });
-
     }
 
-    public DvmClass getDvmClass(String classPath) {
+    public void loadDvmClass(String classPath) {
         String path = classPath.replace('.', '/');
-        return vm.resolveClass(path);
+        dvmClass = vm.resolveClass(path);
     }
 
     public VM getVm() {
         return vm;
+    }
+
+    public DvmClass getDvmClass() {
+        return dvmClass;
     }
 
     public void close() {
