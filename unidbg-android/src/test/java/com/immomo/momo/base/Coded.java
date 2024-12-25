@@ -78,4 +78,14 @@ public class Coded {
         return bArr4;
     }
 
+    public String genSalt() throws Exception {
+        String key = "O+Y5UtZVuN0+ao71SKa+TFbVJga2oUUK";
+        byte[] b2 = Base64.b(key.getBytes());
+        if (b2.length > 0) {
+            String a2 = Base64.a(b2);
+            return LuaApiUtil.a(a2);
+        }
+        return "";
+    }
+
 }

@@ -13,11 +13,13 @@ public class ApiSecurity {
         this.coded = coded;
     }
 
-    public byte[] encrypted(String body, String salt) {
+    public byte[] encrypted(String body) throws Exception {
+        String salt = coded.genSalt();
         return coded.encrypt(body.getBytes(), salt.getBytes());
     }
 
-    public String x_sign(byte[] encrypted, Map<String, String> header, String salt) {
+    public String x_sign(byte[] encrypted, Map<String, String> header) throws Exception {
+        String salt = coded.genSalt();
         if (StringUtils.isEmpty(salt)) {
             return "";
         }

@@ -5,10 +5,6 @@ import java.util.Map;
 
 public class Mock {
 
-    public static String genSalt() {
-        return "6ueA4OxIkFLAjNV8Dqkxa4sKqxbSNHu66ueA4OxIkFLAjNV8";
-    }
-
     public static Map<String, String> genRequestParams() {
         Map<String, String> map = new HashMap<>();
         map.put("_ab_test_", "location-spxwuo_blank;active-wklfmo_blank;nearbyfeedlive-reymea_A");
@@ -26,7 +22,7 @@ public class Mock {
         map.put("cookie", "SESSIONID=9BD91EB9-DDF5-AF88-F242-1E2ED951FD36");
         map.put("User-Agent", "MomoChat/9.14.10 Android/12475 (V2241A; Android 12; Gapps 0; zh_CN; 1; vivo)");
         map.put("Accept-Language", "zh-CN");
-        map.put("X-Trace-Id", "D179E388-650F-4AEE-8EFA-A5599F8A77D9");
+        map.put("X-Trace-Id", "D179E388-650F-4AEE   -8EFA-A5599F8A77D9");
         return map;
     }
 
