@@ -14,7 +14,7 @@ public class JSON {
         throw new UnsupportedOperationException();
     }
 
-    private static String stringify(Map<String, String> map) {
+    public static String stringify(Map<String, String> map) {
         JSONObject jSONObject = new JSONObject();
         for (String str2 : map.keySet()) {
             try {
