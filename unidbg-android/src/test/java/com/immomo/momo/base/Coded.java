@@ -10,7 +10,7 @@ public class Coded {
     private final DvmClass dvmClass;
     private final AndroidEmulator emulator;
 
-    private Logger logger = LoggerFactory.getLogger(Coded.class);
+    private final Logger logger = LoggerFactory.getLogger(Coded.class);
 
     protected Coded(AndroidEmulator emulator, DvmClass vmClass) {
         this.emulator = emulator;
@@ -25,8 +25,8 @@ public class Coded {
         return dvmClass.callStaticJniMethodInt(emulator, "a49kdEba83h([BI[BI[B)I", bArr, i, bArr2, i2, bArr3);
     }
 
-    private int sdbyecbu37x(byte[] bArr, byte[] bArr2, byte[] bArr3, int i){
-        return dvmClass.callStaticJniMethodInt(emulator, "sdbyecbu37x([B[B[BI)I", bArr, bArr2, bArr3, i);
+    private void sdbyecbu37x(byte[] bArr, byte[] bArr2, byte[] bArr3, int i){
+        dvmClass.callStaticJniMethodInt(emulator, "sdbyecbu37x([B[B[BI)I", bArr, bArr2, bArr3, i);
     }
 
     private int a9ehcDdu3j8(byte[] bArr, int i, byte[] bArr2, int i2, byte[] bArr3){
@@ -62,5 +62,20 @@ public class Coded {
         }
     }
 
+    private byte[] decrypt(byte[] bArr, byte[] bArr2) {
+        byte[] bArr3 = new byte[computeOutputLength(bArr.length, 2)];
+        int aesDecode = aesDecode(bArr, bArr.length, bArr2, bArr2.length, bArr3);
+        byte[] bArr4 = new byte[aesDecode];
+        System.arraycopy(bArr3, 0, bArr4, 0, aesDecode);
+        return bArr4;
+    }
+
+    private byte[] encrypt(byte[] bArr, byte[] bArr2) {
+        byte[] bArr3 = new byte[computeOutputLength(bArr.length, 1)];
+        int aesEncode = aesEncode(bArr, bArr.length, bArr2, bArr2.length, bArr3);
+        byte[] bArr4 = new byte[aesEncode];
+        System.arraycopy(bArr3, 0, bArr4, 0, aesEncode);
+        return bArr4;
+    }
 
 }
