@@ -62,7 +62,7 @@ public class Coded {
         }
     }
 
-    private byte[] decrypt(byte[] bArr, byte[] bArr2) {
+    public byte[] decrypt(byte[] bArr, byte[] bArr2) {
         byte[] bArr3 = new byte[computeOutputLength(bArr.length, 2)];
         int aesDecode = aesDecode(bArr, bArr.length, bArr2, bArr2.length, bArr3);
         byte[] bArr4 = new byte[aesDecode];
@@ -70,7 +70,7 @@ public class Coded {
         return bArr4;
     }
 
-    private byte[] encrypt(byte[] bArr, byte[] bArr2) {
+    public byte[] encrypt(byte[] bArr, byte[] bArr2) {
         byte[] bArr3 = new byte[computeOutputLength(bArr.length, 1)];
         int aesEncode = aesEncode(bArr, bArr.length, bArr2, bArr2.length, bArr3);
         byte[] bArr4 = new byte[aesEncode];
