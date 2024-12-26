@@ -52,6 +52,13 @@ MOMO
   python apply.py http
 ```
 
+#### 日志命令
+
+```bash
+  # 执行脚本
+  adb logcat --pid=5554
+```
+
 #### 发送参数
 
 ```json
