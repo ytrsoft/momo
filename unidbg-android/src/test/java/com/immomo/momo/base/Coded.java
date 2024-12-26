@@ -5,6 +5,7 @@ import com.github.unidbg.linux.android.dvm.DvmClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.Base64;
 
 public class Coded {
@@ -56,6 +57,8 @@ public class Coded {
         }
         byte[] bArr3 = new byte[20];
         sdbyecbu37x(bArr, bArr2, bArr3, bArr.length);
+        // [67,-26,-36,-21,-52,113,45,-25,-62,124,122,-27,-121,-123,53,41,30,-19,93,58]
+        System.err.println(Arrays.toString(bArr3));
         try {
             return TheBase64.encode(bArr3);
         } catch (Exception e) {
