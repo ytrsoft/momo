@@ -32,7 +32,6 @@ Java.perform(() => {
     const innerKeyMap = getValue(this, 'a')
     const APIKeyholderInner = invoke(innerKeyMap, 11, i)
     const key = getValue(APIKeyholderInner, 'b')
-    //  
     console.log('key', key)
     return this.b()
   }

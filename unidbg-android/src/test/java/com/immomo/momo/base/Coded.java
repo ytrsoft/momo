@@ -5,6 +5,8 @@ import com.github.unidbg.linux.android.dvm.DvmClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Base64;
+
 public class Coded {
 
     private final DvmClass dvmClass;
@@ -55,7 +57,7 @@ public class Coded {
         byte[] bArr3 = new byte[20];
         sdbyecbu37x(bArr, bArr2, bArr3, bArr.length);
         try {
-            return Base64.a(bArr3);
+            return TheBase64.encode(bArr3);
         } catch (Exception e) {
             logger.error(e.getMessage());
             return null;
@@ -78,11 +80,10 @@ public class Coded {
         return bArr4;
     }
 
-    public String genSalt() throws Exception {
-        String key = "O+Y5UtZVuN0+ao71SKa+TFbVJga2oUUK";
-        byte[] b2 = Base64.b(key.getBytes());
+    public String genSalt(String key) {
+        byte[] b2 = TheBase64.decode(key.getBytes());
         if (b2.length > 0) {
-            String a2 = Base64.a(b2);
+            String a2 = TheBase64.encode(b2);
             return LuaApiUtil.a(a2);
         }
         return "";

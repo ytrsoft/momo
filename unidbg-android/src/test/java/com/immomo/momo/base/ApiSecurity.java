@@ -9,17 +9,19 @@ public class ApiSecurity {
 
     private final Coded coded;
 
+    private static final String API_KEY = "O+Y5UtZVuN0+ao71SKa+TFbVJga2oUUK";
+
     public ApiSecurity(Coded coded) {
         this.coded = coded;
     }
 
-    public byte[] encrypted(String body) throws Exception {
-        String salt = coded.genSalt();
+    public byte[] encrypted(String body)  {
+        String salt = coded.genSalt(API_KEY);
         return coded.encrypt(body.getBytes(), salt.getBytes());
     }
 
-    public String x_sign(byte[] encrypted, Map<String, String> header) throws Exception {
-        String salt = coded.genSalt();
+    public String x_sign(byte[] encrypted, Map<String, String> header) {
+        String salt = coded.genSalt(API_KEY);
         if (StringUtils.isEmpty(salt)) {
             return "";
         }

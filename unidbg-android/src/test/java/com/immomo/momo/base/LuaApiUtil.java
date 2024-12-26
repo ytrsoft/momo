@@ -2,10 +2,6 @@ package com.immomo.momo.base;
 
 public class LuaApiUtil {
 
-    public static int a() {
-        return 1;
-    }
-
     public static int b() {
         return 2;
     }
