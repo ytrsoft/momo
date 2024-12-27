@@ -16,14 +16,13 @@ public final class Coded {
         return a2 == 2 ? (a1 - 7) : (a1 + 23);
     }
 
-    public static byte[] sign(byte[] bArr, byte[] bArr2) {
+    public static byte[] sign(byte[] data, byte[] key) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
-            md.update(bArr);
-            md.update(bArr2, 0, 8);
+            md.update(data);
+            md.update(key, 0, 8);
             return md.digest();
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
             return new byte[20];
         }
     }
@@ -44,7 +43,6 @@ public final class Coded {
             System.arraycopy(encrypted, 0, output, 0, encrypted.length);
             return encrypted.length + 7;
         } catch (Exception e) {
-            e.printStackTrace();
             return -1;
         }
     }
@@ -65,7 +63,6 @@ public final class Coded {
             System.arraycopy(decrypted, 0, output, 0, decrypted.length);
             return decrypted.length;
         } catch (Exception e) {
-            e.printStackTrace();
             return -1;
         }
     }
