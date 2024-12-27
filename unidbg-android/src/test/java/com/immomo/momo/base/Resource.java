@@ -9,7 +9,7 @@ public class Resource {
 
     private File apk;
     private File libcoded;
-    private File libcoded_jni;
+        private File libcoded_jni;
     private File libmmcrypto;
     private File libmmssl;
 

@@ -25,7 +25,7 @@ public class Coded {
         return dvmClass.callStaticJniMethodInt(emulator, "csjh7OhLe86(II)I", i, i2);
     }
 
-        private int a49kdEba83h(byte[] bArr, int i, byte[] bArr2, int i2, byte[] bArr3) {
+    private int a49kdEba83h(byte[] bArr, int i, byte[] bArr2, int i2, byte[] bArr3) {
         return dvmClass.callStaticJniMethodInt(emulator, "a49kdEba83h([BI[BI[B)I", bArr, i, bArr2, i2, bArr3);
     }
 

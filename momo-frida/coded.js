@@ -23,7 +23,7 @@ const setup = () => {
   // }
   // aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
   //   const result = this.aesEncode(bArr, i, bArr2, i2, bArr3)
-  //   console.log('aesEncode: ', equalLine(100))
+  //   console.log('[aesEncode方法被调用]')
   //   console.log('第1个参数：', bytes_text(bArr))
   //   console.log('第2个参数：', i)
   //   console.log('第3个参数：', bytes_text(bArr2))
@@ -31,8 +31,20 @@ const setup = () => {
   //   console.log('第5个参数：', bytes_text(bArr3))
   //   console.log('返回结果：', result)
   //   console.log(equalLine(100))
+  //   console.log(    )
   //   return result
   // }
+  aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
+    const result = this.aesEncode(bArr, i, bArr2, i2, bArr3)
+    console.log('[aesEncode方法被调用]')
+    console.log('第1个参数：', bytes_text(bArr))
+    console.log('第2个参数：', bytes_text(bArr2))
+    console.log('第3个参数：', bytes_text(bArr3))
+    console.log('返回结果：', result)
+    console.log(equalLine(100))
+    console.log(    )
+    return result
+  }
   // sign.implementation = function(bArr, bArr2) {
   //   const result = this.sign(bArr, bArr2)
   //   console.log('sign: ', equalLine(100))
@@ -42,17 +54,17 @@ const setup = () => {
   //   console.log(equalLine(100))
   //   return result
   // }
-  sdbyecbu37x.implementation = function(...args) {
-    const result = this.sdbyecbu37x(...args)
-    console.log('[sign方法被调用]')
-    console.log('第1个参数：', bytes_text(args[0]))
-    console.log('第2个参数：', bytes_text(args[1]))
-    console.log('第3个参数：', bytes_text(args[2]))
-    console.log('第4个参数：', bytes_text(args[3]))
-    console.log('返回结果：', result)
-    console.log(equalLine(100))
-    return result
-  }
+  // sdbyecbu37x.implementation = function(...args) {
+  //   const result = this.sdbyecbu37x(...args)
+  //   console.log('[sign方法被调用]')
+  //   console.log('第1个参数：', bytes_text(args[0]))
+  //   console.log('第2个参数：', bytes_text(args[1]))
+  //   console.log('第3个参数：', bytes_text(args[2]))
+  //   console.log('第4个参数：', bytes_text(args[3]))
+  //   console.log('返回结果：', result)
+  //   console.log(equalLine(100))
+  //   return result
+  // }
 }
 
 Java.perform(setup)
