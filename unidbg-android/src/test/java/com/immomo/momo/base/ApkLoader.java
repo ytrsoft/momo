@@ -18,6 +18,7 @@ public class ApkLoader {
 
     public void loadApk(boolean verbose) {
         vm = emulatorManager.getEmulator().createDalvikVM(resource.getApk());
+        System.out.println(resource.getApk().getAbsolutePath());
         vm.setVerbose(verbose);
         AndroidEmulator emulator = emulatorManager.getEmulator();
         resource.jniLoad(emulator, vm);

@@ -9,6 +9,7 @@ const bytes_text = (bytes) => {
 const setup = () => {
   const Coded = Java.use('com.immomo.momo.util.jni.Coded')
   const sign = Coded.sign.overload('[B', '[B')
+  const sdbyecbu37x = Coded.sdbyecbu37x.overloads[0]
   const computeOutputLength = Coded.computeOutputLength.overload('int', 'int')
   const aesEncode = Coded.aesEncode.overload('[B', 'int', '[B', 'int', '[B')
   // computeOutputLength.implementation = function(i, i2) {
@@ -37,6 +38,17 @@ const setup = () => {
     console.log('sign: ', equalLine(100))
     console.log('第1个参数：', bytes_text(bArr))
     console.log('第2个参数：', bytes_text(bArr2))
+    console.log('返回结果：', result)
+    console.log(equalLine(100))
+    return result
+  }
+  sdbyecbu37x.implementation = function(...args) {
+    const result = this.sdbyecbu37x(...args)
+    console.log('sdbyecbu37x: ', equalLine(100))
+    console.log('第1个参数：', bytes_text(args[0]))
+    console.log('第2个参数：', bytes_text(args[1]))
+    console.log('第3个参数：', bytes_text(args[2]))
+    console.log('第4个参数：', bytes_text(args[3]))
     console.log('返回结果：', result)
     console.log(equalLine(100))
     return result
