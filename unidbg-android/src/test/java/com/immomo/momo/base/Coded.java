@@ -2,19 +2,22 @@ package com.immomo.momo.base;
 
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.linux.android.dvm.DvmClass;
+import com.github.unidbg.linux.android.dvm.VM;
 import com.github.unidbg.linux.android.dvm.array.ByteArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Coded {
 
+    private final VM vm;
     private final DvmClass dvmClass;
     private final AndroidEmulator emulator;
 
     private final Logger logger = LoggerFactory.getLogger(Coded.class);
 
-    protected Coded(AndroidEmulator emulator, DvmClass vmClass) {
+    protected Coded(AndroidEmulator emulator, VM vm,  DvmClass vmClass) {
         this.emulator = emulator;
+        this.vm = vm;
         this.dvmClass = vmClass;
     }
 
@@ -22,11 +25,11 @@ public class Coded {
         return dvmClass.callStaticJniMethodInt(emulator, "csjh7OhLe86(II)I", i, i2);
     }
 
-    private int a49kdEba83h(byte[] bArr, int i, byte[] bArr2, int i2, byte[] bArr3) {
+        private int a49kdEba83h(byte[] bArr, int i, byte[] bArr2, int i2, byte[] bArr3) {
         return dvmClass.callStaticJniMethodInt(emulator, "a49kdEba83h([BI[BI[B)I", bArr, i, bArr2, i2, bArr3);
     }
 
-    public void sdbyecbu37x(byte[] bArr, byte[] bArr2, byte[] bArr3, int i){
+    public void sdbyecbu37x(byte[] bArr, byte[] bArr2, ByteArray bArr3, int i){
         dvmClass.callStaticJniMethodInt(emulator, "sdbyecbu37x([B[B[BI)I", bArr, bArr2, bArr3, i);
     }
 
@@ -99,10 +102,11 @@ public class Coded {
         if (bArr == null || bArr2 == null) {
             return "";
         }
-        byte[] bArr3 = new byte[20];
+        byte[] empty = new byte[20];
+        ByteArray bArr3 = new ByteArray(vm, empty);
         sdbyecbu37x(bArr, bArr2, bArr3, bArr.length);
         try {
-            return TheBase64.encode(bArr3);
+            return TheBase64.encode(bArr3.getValue());
         } catch (Exception e) {
             logger.error(e.getMessage());
             return null;

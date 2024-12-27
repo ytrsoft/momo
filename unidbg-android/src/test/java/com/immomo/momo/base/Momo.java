@@ -1,5 +1,7 @@
 package com.immomo.momo.base;
 
+import com.github.unidbg.linux.android.dvm.VM;
+
 public class Momo extends BaseApk {
 
     public Momo() {
@@ -17,6 +19,7 @@ public class Momo extends BaseApk {
     }
 
     public Coded loadCoded() {
-        return new Coded(getEmulator(), super.loadDvmClass());
+        VM vm = getApkLoader().getVm();
+        return new Coded(getEmulator(), vm, super.loadDvmClass());
     }
 }

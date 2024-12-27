@@ -33,18 +33,18 @@ const setup = () => {
   //   console.log(equalLine(100))
   //   return result
   // }
-  sign.implementation = function(bArr, bArr2) {
-    const result = this.sign(bArr, bArr2)
-    console.log('sign: ', equalLine(100))
-    console.log('第1个参数：', bytes_text(bArr))
-    console.log('第2个参数：', bytes_text(bArr2))
-    console.log('返回结果：', result)
-    console.log(equalLine(100))
-    return result
-  }
+  // sign.implementation = function(bArr, bArr2) {
+  //   const result = this.sign(bArr, bArr2)
+  //   console.log('sign: ', equalLine(100))
+  //   console.log('第1个参数：', bytes_text(bArr))
+  //   console.log('第2个参数：', bytes_text(bArr2))
+  //   console.log('返回结果：', result)
+  //   console.log(equalLine(100))
+  //   return result
+  // }
   sdbyecbu37x.implementation = function(...args) {
     const result = this.sdbyecbu37x(...args)
-    console.log('sdbyecbu37x: ', equalLine(100))
+    console.log('[sign方法被调用]')
     console.log('第1个参数：', bytes_text(args[0]))
     console.log('第2个参数：', bytes_text(args[1]))
     console.log('第3个参数：', bytes_text(args[2]))
