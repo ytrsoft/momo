@@ -77,7 +77,7 @@ Java.perform(() => {
     const url = request.url().toString()
     const method = request.method().toUpperCase()
     console.log(`[${method}] - ${url}`)
-    // logHeader(request)
+    logHeader(request)
     logRequest(request)
     const response = chain.proceed(request)
     // logResponse(response)

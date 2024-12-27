@@ -8,19 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Map;
 
-public final class ApiSecurity {
-
-    private ApiSecurity() {
-        throw new UnsupportedOperationException();
-    }
-
-    private static class Holder {
-        private static final ApiSecurity INSTANCE = new ApiSecurity();
-    }
-
-    public static ApiSecurity getInstance() {
-        return Holder.INSTANCE;
-    }
+public class ApiSecurity {
 
     private String sign(byte[] bArr, byte[] bArr2) {
         if (bArr == null || bArr2 == null) {

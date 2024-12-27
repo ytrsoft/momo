@@ -33,6 +33,7 @@ Java.perform(() => {
   }
   ApiSecurity.c.implementation = function() {
     console.log(equalLine(100))
+    const i = getValue(this, 'i')
     const k = getValue(this, 'k')
     const m = getValue(this, 'm')
     const j = getValue(this, 'j')
@@ -41,6 +42,8 @@ Java.perform(() => {
     console.log('header', k)
     console.log(equalLine(100, '='))
     console.log('args', j)
+    console.log(equalLine(100))
+    console.log('i', i)
     console.log(equalLine(100))
     this.c()
   }
