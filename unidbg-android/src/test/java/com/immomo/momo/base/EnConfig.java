@@ -18,6 +18,6 @@ public class EnConfig {
     }
 
     public String c() {
-        return "MomoChat/8.25_dev Android/" + a() + " (IN2020; Android 10; Gapps 0; zh_CN; 1; OnePlus)";
+        return "MomoChat/8.25_dev Android/5931 (IN2020; Android 10; Gapps 0; zh_CN; 1; OnePlus)";
     }
 }

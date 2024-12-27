@@ -70,6 +70,20 @@ public final class Coded {
         }
     }
 
+    public static byte[] decrypt(byte[] bArr, byte[] bArr2) {
+        byte[] bArr3 = new byte[computeOutputLength(bArr.length, 2)];
+        int aesDecode = aesDecode(bArr, bArr2, bArr3);
+        byte[] bArr4 = new byte[aesDecode];
+        System.arraycopy(bArr3, 0, bArr4, 0, aesDecode);
+        return bArr4;
+    }
 
+    public static byte[] encrypt(byte[] bArr, byte[] bArr2) {
+        byte[] bArr3 = new byte[computeOutputLength(bArr.length, 1)];
+        int aesEncode = aesEncode(bArr, bArr2, bArr3);
+        byte[] bArr4 = new byte[aesEncode];
+        System.arraycopy(bArr3, 0, bArr4, 0, aesEncode);
+        return bArr4;
+    }
 
 }
