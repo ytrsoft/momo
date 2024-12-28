@@ -58,7 +58,7 @@ public final class Coded {
             cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
             byte[] decrypted = cipher.doFinal(encryptedData);
             if (output.length < decrypted.length) {
-                throw new IllegalArgumentException("输出缓冲区不足以存放解密后的数据");
+                throw new IllegalArgumentException("Output buffer is not large enough to hold decrypted data");
             }
             System.arraycopy(decrypted, 0, output, 0, decrypted.length);
             return decrypted.length;
