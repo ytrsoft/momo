@@ -1,7 +1,7 @@
 package com.immomo.momo;
 
-import com.immomo.momo.enc.ApiSecurity;
-import com.immomo.momo.enc.Coded;
+
+import com.immomo.momo.fire.ApiSecurity;
 
 import java.util.HashMap;
 import java.util.Map;

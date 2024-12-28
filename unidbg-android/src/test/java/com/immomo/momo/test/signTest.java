@@ -1,8 +1,8 @@
 package com.immomo.momo.test;
 
-import com.immomo.momo.enc.Coded;
 import com.immomo.momo.base.Momo;
 import com.immomo.momo.base.TheBase64;
+import com.immomo.momo.fire.Coded;
 
 public class signTest {
     public static void main(String[] args) throws Exception {

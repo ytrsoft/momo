@@ -1,4 +1,4 @@
-package com.immomo.momo.enc;
+package com.immomo.momo.fire;
 
 import com.immomo.momo.base.TheBase64;
 import org.apache.commons.lang3.StringUtils;
