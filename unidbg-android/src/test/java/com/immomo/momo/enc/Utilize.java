@@ -1,4 +1,4 @@
-package com.immomo.momo.fire;
+package com.immomo.momo.enc;
 
 import java.util.Map;
 

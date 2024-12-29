@@ -36,13 +36,10 @@ const setup = () => {
   // }
   aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
     const result = this.aesEncode(bArr, i, bArr2, i2, bArr3)
-    console.log('[aesEncode方法被调用]')
-    console.log('第1个参数：', bytes_text(bArr))
-    console.log('第2个参数：', bytes_text(bArr2))
-    console.log('第3个参数：', bytes_text(bArr3))
-    console.log('返回结果：', result)
-    console.log(equalLine(100))
-    console.log(    )
+    let data = bytes_text(bArr)
+    data = data.replace('[', '{')
+    data = data.replace(']', '}')
+    console.log('byte[] data = new byte[]' + data)
     return result
   }
   // sign.implementation = function(bArr, bArr2) {

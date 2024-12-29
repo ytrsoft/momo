@@ -1,4 +1,4 @@
-package com.immomo.momo.base;
+package com.immomo.momo.emulator;
 
 import cn.hutool.core.io.resource.ClassPathResource;
 

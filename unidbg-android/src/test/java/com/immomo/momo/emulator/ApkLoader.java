@@ -1,4 +1,4 @@
-package com.immomo.momo.base;
+package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.linux.android.dvm.VM;

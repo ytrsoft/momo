@@ -1,4 +1,4 @@
-package com.immomo.momo.base;
+package com.immomo.momo.enc;
 
 import java.util.Base64;
 

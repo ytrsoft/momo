@@ -1,4 +1,4 @@
-package com.immomo.momo.base;
+package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.linux.android.dvm.VM;
@@ -9,7 +9,7 @@ public class Resource {
 
     private File apk;
     private File libcoded;
-        private File libcoded_jni;
+    private File libcoded_jni;
     private File libmmcrypto;
     private File libmmssl;
 

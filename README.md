@@ -68,3 +68,5 @@ MOMO
    "content": "该消息由测试组发送"
 }
 ```
+
+> **注意**: apk放在test/resources下
