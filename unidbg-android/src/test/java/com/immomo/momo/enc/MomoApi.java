@@ -30,6 +30,7 @@ public class MomoApi {
 
     public MomoApi args(Map<String, String> args) {
         JSONObject body = paramBuilder.buildParams(args);
+        System.out.println(body.toString(2));
         this.zip = paramBuilder.encodeParams(body);
         this.sign = paramBuilder.generateSign(body);
         return this;
