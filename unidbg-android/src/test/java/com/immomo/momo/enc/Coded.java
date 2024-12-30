@@ -3,6 +3,7 @@ package com.immomo.momo.enc;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -59,7 +60,6 @@ public final class Coded {
             SecretKeySpec secretKey = new SecretKeySpec(Arrays.copyOfRange(key, 0, 16), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(Cipher.DECRYPT_MODE, secretKey, ivSpec);
-
             byte[] encrypted = Arrays.copyOfRange(data, 6, data.length);
             return cipher.doFinal(encrypted);
         } catch (Exception e) {

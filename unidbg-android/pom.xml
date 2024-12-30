@@ -11,7 +11,7 @@
     <artifactId>unidbg-android</artifactId>
     <version>0.9.9-SNAPSHOT</version>
 
-    <dependencies>
+    <dependencies>  
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>

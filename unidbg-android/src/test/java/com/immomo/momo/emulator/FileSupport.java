@@ -10,7 +10,7 @@ public final class FileSupport {
         throw new UnsupportedOperationException();
     }
 
-    private static File get(String fileName) {
+    public static File get(String fileName) {
         ClassPathResource resource = new ClassPathResource("");
         String path = resource.getAbsolutePath();
         return new File(path + fileName);

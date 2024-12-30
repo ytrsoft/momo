@@ -36,10 +36,8 @@ const setup = () => {
   // }
   aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
     const result = this.aesEncode(bArr, i, bArr2, i2, bArr3)
-    let data = bytes_text(bArr)
-    data = data.replace('[', '{')
-    data = data.replace(']', '}')
-    console.log('byte[] data = new byte[]' + data)
+    const String = Java.use('java.lang.String')
+    console.log(String.$new(bArr))
     return result
   }
   // sign.implementation = function(bArr, bArr2) {
