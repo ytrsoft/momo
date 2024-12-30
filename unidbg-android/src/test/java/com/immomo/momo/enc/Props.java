@@ -14,19 +14,18 @@ public class Props {
     private String ua;
     private String spanId;
     private String language;
-    private String contentType;
-    private String sessionId;
     private String apiKey;
     private String cookie;
     private String fr;
     private String net;
     private String test;
+    private String act;
 
     public Props() {
         Properties props = getProps();
         cookie = props.getProperty("cookie");
         language = props.getProperty("accept_language");
-        contentType = props.getProperty("content_type");
+        act = props.getProperty("x_act");
         ua = props.getProperty("ua");
         uid = props.getProperty("uid");
         tokenId = props.getProperty("_iid");
@@ -99,22 +98,6 @@ public class Props {
         this.language = language;
     }
 
-    public String getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
-    }
-
-    public String getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
-
     public String getApiKey() {
         return apiKey;
     }
@@ -153,5 +136,13 @@ public class Props {
 
     public void setTest(String test) {
         this.test = test;
+    }
+
+    public String getAct() {
+        return act;
+    }
+
+    public void setAct(String act) {
+        this.act = act;
     }
 }
