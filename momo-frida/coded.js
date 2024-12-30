@@ -43,17 +43,17 @@ const setup = () => {
   /*aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
     const result = this.aesEncode(bArr, i, bArr2, i2, bArr3)
     console.log('aesEncode:', equalLine(200))
-    console.log('(1)', bytes_text(bArr))
-    console.log('(2)', bytes_text(bArr3))
+    const String = Java.use('java.lang.String')
+    //console.log('(1)', bytes_text(bArr))
+    console.log('(2)', String.$new(bArr2))
+    //console.log('(3)', bytes_text(bArr3))
     console.log(equalLine(200))
     return result
   }*/
   sign.implementation = function(bArr, bArr2) {
      const result = this.sign(bArr, bArr2)
-     const String = Java.use('java.lang.String')
      console.log('sign:', equalLine(200))
-     console.log('(1)', bytes_text(bArr))
-     console.log('(2)', String.$new(bArr2))
+     console.log(bytes_text(bArr))
      console.log(equalLine(200))
      return result
    }

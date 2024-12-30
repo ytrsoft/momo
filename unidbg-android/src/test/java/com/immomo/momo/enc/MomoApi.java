@@ -85,8 +85,8 @@ public class MomoApi {
 
         public String sign(byte[] encoded) {
             try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
-                bos.write(encoded);
                 bos.write(props.getUa().getBytes());
+                bos.write(encoded);
                 byte[] bytes = Coded.sign(bos.toByteArray(), key.getBytes());
                 return Base64.encode(bytes);
             } catch (Exception e) {

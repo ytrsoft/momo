@@ -18,12 +18,10 @@ public final class Coded {
     public static byte[] sign(byte[] data, byte[] key) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            outputStream.write(data);
-            outputStream.write(Arrays.copyOfRange(key, 0, 8));
-            byte[] combined = outputStream.toByteArray();
-            return md.digest(combined);
-        } catch (Exception e) {
+            md.update(data);
+            md.update(key, 0, 8);
+            return md.digest();
+        } catch (NoSuchAlgorithmException e) {
             return new byte[20];
         }
     }
@@ -68,6 +66,5 @@ public final class Coded {
         }
         return new byte[data.length - 7];
     }
-
 
 }
