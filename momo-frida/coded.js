@@ -40,19 +40,20 @@ const setup = () => {
   //   console.log(    )
   //   return result
   // }
-  aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
+  /*aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
     const result = this.aesEncode(bArr, i, bArr2, i2, bArr3)
     console.log('aesEncode:', equalLine(200))
     console.log('(1)', bytes_text(bArr))
     console.log('(2)', bytes_text(bArr3))
     console.log(equalLine(200))
     return result
-  }
+  }*/
   sign.implementation = function(bArr, bArr2) {
      const result = this.sign(bArr, bArr2)
+     const String = Java.use('java.lang.String')
      console.log('sign:', equalLine(200))
      console.log('(1)', bytes_text(bArr))
-     console.log('(2)', bytes_text(bArr2))
+     console.log('(2)', String.$new(bArr2))
      console.log(equalLine(200))
      return result
    }
@@ -67,12 +68,12 @@ const setup = () => {
   //   console.log(equalLine(100))
   //   return result
   // }
-  const ApiSecurity = Java.use('com.immomo.momoenc.e')
+  /* const ApiSecurity = Java.use('com.immomo.momoenc.e')
   ApiSecurity.a.overload('[B', 'java.util.Map', 'java.lang.String').implementation=function(...args) {
     console.log(bytes_text(args[0]))
     printMap(args[1])
     return this.a(...args)
-  }
+  }*/
 }
 
 Java.perform(setup)

@@ -1,43 +1,32 @@
 package com.immomo.momo.enc;
 
-import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MomoApi {
 
-    private String url;
-    private final String key;
-    private final Props props;
+    private final String url;
     private final HeaderBuilder headerBuilder;
     private final ParamBuilder paramBuilder;
     private String zip;
     private String sign;
 
-    public MomoApi() {
-        this.key = "M7ydwPqW3AUbQHsbGF+8AJbwLQ2JTSFdM7ydwPqW3AUbQHsb";
-        this.props = new Props();
-        this.headerBuilder = new HeaderBuilder(this.props);
-        this.paramBuilder = new ParamBuilder(this.key, this.props);
+    public MomoApi(String url) {
+        Props props = new Props();
+        this.url = url + "?fr=" + props.getFr();
+        this.headerBuilder = new HeaderBuilder(props);
+        this.paramBuilder = new ParamBuilder(props);
     }
 
-    public MomoApi args(Map<String, String> args) {
-        JSONObject body = paramBuilder.buildParams(args);
-        System.out.println(body.toString(2));
-        this.zip = paramBuilder.encodeParams(body);
-        this.sign = paramBuilder.generateSign(body);
-        return this;
-    }
-
-    public MomoApi url(String url) {
-        this.url = url + "?fr=" + this.props.getFr();
+    public MomoApi withParams(Map<String, String> params) {
+        JSONObject body = paramBuilder.buildParams(params);
+        byte[] encoded = paramBuilder.encodeParams(body);
+        this.zip = Base64.encode(encoded);
+        this.sign = paramBuilder.sign(encoded);
         return this;
     }
 
@@ -58,22 +47,16 @@ public class MomoApi {
 
         public Map<String, String> buildHeaders(String sign) {
             Map<String, String> headers = new HashMap<>();
-            headers.put("X-LV", this.props.getLv());
-            headers.put("X-KV", "806d4fd4");
-            headers.put("X-Span-Id", this.props.getSpanId());
-            headers.put("X-Trace-Id", Id.get());
-            headers.put("cookie", this.props.getCookie());
-            headers.put("Accept-Language", this.props.getLanguage());
-            headers.put("X-ACT", this.props.getAct());
-            headers.put("User-Agent", this.props.getUa());
+            headers.put("X-LV", props.getLv());
+            headers.put("X-KV", props.getKv());
+            headers.put("X-Span-Id", props.getSpanId());
+            headers.put("X-Trace-Id", Utilize.uuid());
+            headers.put("cookie", props.getCookie());
+            headers.put("Accept-Language", props.getLanguage());
+            headers.put("X-ACT", props.getAct());
+            headers.put("User-Agent", props.getUa());
             headers.put("x-sign", sign);
             return headers;
-        }
-
-        public void printHeaders() {
-            for (Map.Entry<String, String> entry : buildHeaders("").entrySet()) {
-                System.out.println(entry.getKey() + ":" + entry.getValue());
-            }
         }
     }
 
@@ -81,46 +64,35 @@ public class MomoApi {
         private final String key;
         private final Props props;
 
-        public ParamBuilder(String key, Props props) {
-            this.key = key;
+        public ParamBuilder(Props props) {
+            this.key = props.getKey();
             this.props = props;
         }
 
         public JSONObject buildParams(Map<String, String> params) {
-            params.put("_get_", this.props.getNet());
-            params.put("_iid_", this.props.getTokenId());
-            params.put("_ab_test_", this.props.getTest());
-            params.put("_uid_", this.props.getUid());
+            params.put("_net_", props.getNet());
+            params.put("_iid_", props.getTokenId());
+            params.put("_ab_test_", props.getTest());
+            params.put("_uid_", props.getUid());
             return new JSONObject(params);
         }
 
-        public String encodeParams(JSONObject body) {
+        public byte[] encodeParams(JSONObject body) {
             byte[] apiKey = this.key.getBytes();
             byte[] data = body.toString().getBytes();
-            byte[] encoded = Coded.encode(data, apiKey);
-            return Base64.encode(encoded);
+            return Coded.encode(data, apiKey);
         }
 
-        public String generateSign(JSONObject body) {
-            byte[] apiKey = this.key.getBytes();
-            byte[] encodedData = encodeParams(body).getBytes();
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            try {
-                bos.write(encodedData);
-                bos.write(this.props.getUa().getBytes());
+        public String sign(byte[] encoded) {
+            try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+                bos.write(encoded);
+                bos.write(props.getUa().getBytes());
+                byte[] bytes = Coded.sign(bos.toByteArray(), key.getBytes());
+                return Base64.encode(bytes);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            byte[] bytes = Coded.sign(bos.toByteArray(), apiKey);
-            return Base64.encode(bytes);
+            return "";
         }
-    }
-
-    private static byte[] getCkOs() {
-        ClassPathResource resource = new ClassPathResource("");
-        String path = resource.getAbsolutePath();
-        File file = new File(path + ".ck_os");
-        String content = FileUtil.readUtf8String(file);
-        return Base64.decode(content.getBytes());
     }
 }

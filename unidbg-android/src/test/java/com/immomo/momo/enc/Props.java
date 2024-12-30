@@ -20,6 +20,8 @@ public class Props {
     private String net;
     private String test;
     private String act;
+    private String kv;
+    private String key;
 
     public Props() {
         Properties props = getProps();
@@ -34,6 +36,8 @@ public class Props {
         fr = props.getProperty("fr");
         net = props.getProperty("_net_");
         test = props.getProperty("_ab_test_");
+        kv = props.getProperty("x_kv");
+        key = props.getProperty("key");
     }
 
     private Properties getProps() {
@@ -144,5 +148,21 @@ public class Props {
 
     public void setAct(String act) {
         this.act = act;
+    }
+
+    public String getKv() {
+        return kv;
+    }
+
+    public void setKv(String kv) {
+        this.kv = kv;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
