@@ -69,11 +69,12 @@ public class MomoApi {
         }
 
         public JSONObject buildParams(Map<String, String> params) {
-            params.put("_net_", props.getNet());
-            params.put("_iid_", props.getTokenId());
-            params.put("_ab_test_", props.getTest());
-            params.put("_uid_", props.getUid());
-            return new JSONObject(params);
+            Map<String, String> args = new HashMap<>(params);
+            args.put("_net_", props.getNet());
+            args.put("_iid_", props.getTokenId());
+            args.put("_ab_test_", props.getTest());
+            args.put("_uid_", props.getUid());
+            return new JSONObject(args);
         }
 
         public byte[] encodeParams(JSONObject body) {
