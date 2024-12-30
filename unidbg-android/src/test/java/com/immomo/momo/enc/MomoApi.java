@@ -3,6 +3,9 @@ package com.immomo.momo.enc;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,11 +18,15 @@ public class MomoApi {
     private String zip;
     private String sign;
 
+    private static final Logger logger = LoggerFactory.getLogger(MomoApi.class);
+
     public MomoApi(String url) {
         Props props = new Props();
         this.url = url + "?fr=" + props.getFr();
         this.headerBuilder = new HeaderBuilder(props);
         this.paramBuilder = new ParamBuilder(props);
+        logger.info("请求地址 - {}", url);
+        logger.info("密钥 - {}", props.getKey());
     }
 
     public MomoApi withParams(JSONObject params) {
@@ -32,11 +39,15 @@ public class MomoApi {
 
     public JSONObject doRequest() {
         JSONObject headers = headerBuilder.buildHeaders(sign);
+        logger.info("请求头 - {}", headers);
+        logger.info("请求体 - {}", zip);
         HttpResponse response = HttpRequest.post(url)
                 .addHeaders(toMap(headers))
                 .form("mzip", zip)
                 .execute();
-        return new JSONObject(response.body());
+        JSONObject body = new JSONObject(response.body());
+        logger.info("响应 - {}", body);
+        return body;
     }
 
     private Map<String, String> toMap(JSONObject json) {
