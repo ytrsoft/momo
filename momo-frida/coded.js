@@ -40,24 +40,24 @@ const setup = () => {
   //   console.log(    )
   //   return result
   // }
-  /*aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
+  aesEncode.implementation = function(bArr, i, bArr2, i2, bArr3) {
     const result = this.aesEncode(bArr, i, bArr2, i2, bArr3)
     console.log('aesEncode:', equalLine(200))
     const String = Java.use('java.lang.String')
     //console.log('(1)', bytes_text(bArr))
-    console.log('(2)', String.$new(bArr2))
+    console.log('(2)', String.$new(bArr))
     //console.log('(3)', bytes_text(bArr3))
     console.log(equalLine(200))
     return result
-  }*/
-  sign.implementation = function(bArr, bArr2) {
-     const result = this.sign(bArr, bArr2)
-     console.log('sign:', equalLine(200))
-     const String = Java.use('java.lang.String')
-     console.log(String.$new(bArr2))
-     console.log(equalLine(200))
-     return result
-   }
+  }
+  // sign.implementation = function(bArr, bArr2) {
+  //    const result = this.sign(bArr, bArr2)
+  //    console.log('sign:', equalLine(200))
+  //    const String = Java.use('java.lang.String')
+  //    console.log(String.$new(bArr2))
+  //    console.log(equalLine(200))
+  //    return result
+  //  }
   // sdbyecbu37x.implementation = function(...args) {
   //   const result = this.sdbyecbu37x(...args)
   //   console.log('[sign方法被调用]')

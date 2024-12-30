@@ -1,12 +1,12 @@
 package com.immomo.momo.enc;
 
-import cn.hutool.http.HttpRequest;
-import cn.hutool.http.HttpResponse;
+import okhttp3.*;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,13 +41,28 @@ public class MomoApi {
         JSONObject headers = headerBuilder.buildHeaders(sign);
         logger.info("请求头 - {}", headers);
         logger.info("请求体 - {}", zip);
-        HttpResponse response = HttpRequest.post(url)
-                .addHeaders(toMap(headers))
-                .form("mzip", zip)
-                .execute();
-        JSONObject body = new JSONObject(response.body());
-        logger.info("响应 - {}", body);
-        return body;
+
+        OkHttpClient client = new OkHttpClient();
+
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        RequestBody requestBody = RequestBody.create(zip, mediaType);
+
+        Request request = new Request.Builder()
+                .url(url)
+                .headers(Headers.of(toMap(headers)))
+                .post(requestBody)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            ResponseBody body = response.body();
+            if (body != null) {
+                return new JSONObject(body.string());
+            }
+            return new JSONObject();
+        } catch (IOException e) {
+            logger.error("请求失败: {}", e.getMessage());
+            return null;
+        }
     }
 
     private Map<String, String> toMap(JSONObject json) {
