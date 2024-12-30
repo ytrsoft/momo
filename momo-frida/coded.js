@@ -53,7 +53,8 @@ const setup = () => {
   sign.implementation = function(bArr, bArr2) {
      const result = this.sign(bArr, bArr2)
      console.log('sign:', equalLine(200))
-     console.log(bytes_text(bArr))
+     const String = Java.use('java.lang.String')
+     console.log(String.$new(bArr2))
      console.log(equalLine(200))
      return result
    }

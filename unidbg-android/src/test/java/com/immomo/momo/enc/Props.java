@@ -22,6 +22,7 @@ public class Props {
     private String act;
     private String kv;
     private String key;
+    private String host;
 
     public Props() {
         Properties props = getProps();
@@ -38,6 +39,7 @@ public class Props {
         test = props.getProperty("_ab_test_");
         kv = props.getProperty("x_kv");
         key = props.getProperty("key");
+        host = props.getProperty("host");
     }
 
     private Properties getProps() {
@@ -164,5 +166,13 @@ public class Props {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
     }
 }

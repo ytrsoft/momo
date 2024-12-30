@@ -47,15 +47,14 @@ public class MomoApi {
 
         public Map<String, String> buildHeaders(String sign) {
             Map<String, String> headers = new HashMap<>();
+            headers.put("cookie", props.getCookie());
+            headers.put("X-SIGN", sign);
+            headers.put("X-Span-Id", props.getSpanId());
+            headers.put("X-ACT", props.getAct());
             headers.put("X-LV", props.getLv());
             headers.put("X-KV", props.getKv());
-            headers.put("X-Span-Id", props.getSpanId());
             headers.put("X-Trace-Id", Utilize.uuid());
-            headers.put("cookie", props.getCookie());
             headers.put("Accept-Language", props.getLanguage());
-            headers.put("X-ACT", props.getAct());
-            headers.put("User-Agent", props.getUa());
-            headers.put("x-sign", sign);
             return headers;
         }
     }
