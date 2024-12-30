@@ -25,7 +25,7 @@ public class MomoApi {
         this.url = url + "?fr=" + props.getFr();
         this.headerBuilder = new HeaderBuilder(props);
         this.paramBuilder = new ParamBuilder(props);
-        logger.info("请求地址 - {}", url);
+        logger.info("请求地址 - {}", this.url);
         logger.info("密钥 - {}", props.getKey());
     }
 
