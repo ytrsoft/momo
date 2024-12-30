@@ -22,7 +22,7 @@ public class MomoApi {
         this.paramBuilder = new ParamBuilder(props);
     }
 
-    public MomoApi withParams(Map<String, String> params) {
+    public MomoApi withParams(JSONObject params) {
         JSONObject body = paramBuilder.buildParams(params);
         byte[] encoded = paramBuilder.encodeParams(body);
         this.zip = Base64.encode(encoded);
@@ -30,12 +30,22 @@ public class MomoApi {
         return this;
     }
 
-    public String doRequest() {
+    public JSONObject doRequest() {
+        JSONObject headers = headerBuilder.buildHeaders(sign);
         HttpResponse response = HttpRequest.post(url)
-                .addHeaders(headerBuilder.buildHeaders(sign))
+                .addHeaders(toMap(headers))
                 .form("mzip", zip)
                 .execute();
-        return response.body();
+        return new JSONObject(response.body());
+    }
+
+    private Map<String, String> toMap(JSONObject json) {
+        Map<String, String> map = new HashMap<>();
+        Map<String, Object> jm = json.toMap();
+        for (Map.Entry<String, Object> entry : jm.entrySet()) {
+            map.put(entry.getKey(), String.valueOf(entry.getValue()));
+        }
+        return map;
     }
 
     private static class HeaderBuilder {
@@ -45,8 +55,8 @@ public class MomoApi {
             this.props = props;
         }
 
-        public Map<String, String> buildHeaders(String sign) {
-            Map<String, String> headers = new HashMap<>();
+        public JSONObject buildHeaders(String sign) {
+            JSONObject headers = new JSONObject();
             headers.put("cookie", props.getCookie());
             headers.put("X-SIGN", sign);
             headers.put("X-Span-Id", props.getSpanId());
@@ -68,13 +78,13 @@ public class MomoApi {
             this.props = props;
         }
 
-        public JSONObject buildParams(Map<String, String> params) {
-            Map<String, String> args = new HashMap<>(params);
+        public JSONObject buildParams(JSONObject params) {
+            JSONObject args = new JSONObject(params.toMap());
             args.put("_net_", props.getNet());
             args.put("_iid_", props.getTokenId());
             args.put("_ab_test_", props.getTest());
             args.put("_uid_", props.getUid());
-            return new JSONObject(args);
+            return args;
         }
 
         public byte[] encodeParams(JSONObject body) {
