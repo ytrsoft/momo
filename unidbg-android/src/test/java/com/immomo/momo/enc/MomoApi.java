@@ -38,27 +38,14 @@ public class MomoApi {
     }
 
     public JSONObject doRequest() {
-        JSONObject headers = headerBuilder.buildHeaders(sign);
-        logger.info("请求头 - {}", headers);
+        JSONObject headersJson = headerBuilder.buildHeaders(sign);
+        logger.info("请求头 - {}", headersJson);
         logger.info("请求体 - {}", zip);
-
-        OkHttpClient client = new OkHttpClient();
-
-        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-        RequestBody requestBody = RequestBody.create(zip, mediaType);
-
-        Request request = new Request.Builder()
-                .url(url)
-                .headers(Headers.of(toMap(headers)))
-                .post(requestBody)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            ResponseBody body = response.body();
-            if (body != null) {
-                return new JSONObject(body.string());
-            }
-            return new JSONObject();
+        Map<String, String> headers = toMap(headersJson);
+        HttpClient client = HttpClient.getInstance()
+                .url(url).headers(headers).body(zip);
+        try {
+            return client.build();
         } catch (IOException e) {
             logger.error("请求失败: {}", e.getMessage());
             return null;
