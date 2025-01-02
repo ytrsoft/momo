@@ -1,6 +1,5 @@
 package com.immomo.momo.enc;
 
-import okhttp3.*;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +16,7 @@ public class MomoApi {
     private final ParamBuilder paramBuilder;
     private String zip;
     private String sign;
+    private static ApiSecurity security;
 
     private static final Logger logger = LoggerFactory.getLogger(MomoApi.class);
 
@@ -27,6 +27,7 @@ public class MomoApi {
         this.paramBuilder = new ParamBuilder(props);
         logger.info("请求地址 - {}", this.url);
         logger.info("密钥 - {}", props.getKey());
+        security = new ApiSecurity(props.getKey());
     }
 
     public MomoApi withParams(JSONObject params) {
@@ -83,11 +84,9 @@ public class MomoApi {
     }
 
     private static class ParamBuilder {
-        private final String key;
         private final Props props;
 
         public ParamBuilder(Props props) {
-            this.key = props.getKey();
             this.props = props;
         }
 
@@ -101,21 +100,23 @@ public class MomoApi {
         }
 
         public byte[] encodeParams(JSONObject body) {
-            byte[] apiKey = this.key.getBytes();
-            byte[] data = body.toString().getBytes();
-            return Coded.encode(data, apiKey);
+            return security.encode(body.toString().getBytes());
         }
 
         public String sign(byte[] encoded) {
             try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
                 bos.write(props.getUa().getBytes());
                 bos.write(encoded);
-                byte[] bytes = Coded.sign(bos.toByteArray(), key.getBytes());
+                byte[] bytes = security.sign(bos.toByteArray());
                 return Base64.encode(bytes);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return "";
         }
+    }
+
+    public void destroy() {
+        security.destroy();
     }
 }

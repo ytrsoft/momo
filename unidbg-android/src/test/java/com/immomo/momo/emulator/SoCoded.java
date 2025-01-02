@@ -5,13 +5,13 @@ import com.github.unidbg.linux.android.dvm.DvmClass;
 import com.github.unidbg.linux.android.dvm.VM;
 import com.github.unidbg.linux.android.dvm.array.ByteArray;
 
-public class Coded {
+public class SoCoded {
 
     private final VM vm;
     private final DvmClass dvmClass;
     private final AndroidEmulator emulator;
 
-    protected Coded(AndroidEmulator emulator, VM vm,  DvmClass vmClass) {
+    protected SoCoded(AndroidEmulator emulator, VM vm, DvmClass vmClass) {
         this.emulator = emulator;
         this.vm = vm;
         this.dvmClass = vmClass;

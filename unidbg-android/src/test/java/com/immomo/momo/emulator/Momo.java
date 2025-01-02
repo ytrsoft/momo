@@ -18,8 +18,8 @@ public class Momo extends BaseApk {
         return "com.immomo.momo.util.jni.Coded";
     }
 
-    public Coded loadCoded() {
+    public SoCoded loadCoded() {
         VM vm = getApkLoader().getVm();
-        return new Coded(getEmulator(), vm, super.loadDvmClass());
+        return new SoCoded(getEmulator(), vm, super.loadDvmClass());
     }
 }
