@@ -27,14 +27,14 @@ public final class Coded {
 
     public static byte[] sign(byte[] data, byte[] key) {
         try {
-            MessageDigest sha1 = MessageDigest.getInstance(SHA1_ALGORITHM);
+            MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
             sha1.update(data);
             sha1.update(key, 0, 8);
             return sha1.digest();
         } catch (NoSuchAlgorithmException e) {
-            logger.error("签名失败: {}", e.getMessage());
-            return new byte[28];
+            e.printStackTrace();
         }
+        return new byte[20];
     }
 
     private static byte[] randomIV() {
