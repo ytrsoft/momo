@@ -70,3 +70,16 @@ MOMO
 ```
 
 > **注意**: apk放在test/resources下
+
+
+#### objection
+
+```bash
+pip install objection
+
+android hooking watch class pkg --dump-args --dump-return --dum
+p-backtrace
+
+android hooking watch class_method pkg.d --dump-args --dump-return --dum
+p-backtrace
+```
