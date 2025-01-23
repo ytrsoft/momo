@@ -77,6 +77,8 @@ MOMO
 ```bash
 pip install objection
 
+objection -g MOMO陌陌 explore
+
 android hooking watch class pkg --dump-args --dump-return --dump-backtrace
 
 android hooking watch class_method pkg.d --dump-args --dump-return --dump-backtrace
