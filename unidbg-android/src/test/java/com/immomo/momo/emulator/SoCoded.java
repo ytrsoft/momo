@@ -2,6 +2,7 @@ package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.linux.android.dvm.DvmClass;
+import com.github.unidbg.linux.android.dvm.DvmObject;
 import com.github.unidbg.linux.android.dvm.VM;
 import com.github.unidbg.linux.android.dvm.array.ByteArray;
 
@@ -19,6 +20,15 @@ public class SoCoded {
 
     private int csjh7OhLe86(int i, int i2) {
         return dvmClass.callStaticJniMethodInt(emulator, "csjh7OhLe86(II)I", i, i2);
+    }
+
+    private int c789Sju7G87(ByteArray bArr, byte[] bArr2, int i, ByteArray bArr3) {
+        return dvmClass.callStaticJniMethodInt(emulator, "c789Sju7G87([B[BI[B)I", bArr, bArr2, i, bArr3);
+    }
+
+    private byte[] g7673Shg3P9(int i, int i2) {
+        ByteArray byteArray = dvmClass.callStaticJniMethodObject(emulator, "g7673Shg3P9(II)[B", i, i2);
+        return byteArray.getValue();
     }
 
     public void a49kdEba83h(byte[] bArr, int i, byte[] bArr2, int i2, ByteArray bArr3) {
@@ -44,8 +54,16 @@ public class SoCoded {
         a9ehcDdu3j8(bArr, i, bArr2, i2, bArr3);
     }
 
-    private int computeOutputLength(int i, int i2) {
+    public int computeOutputLength(int i, int i2) {
         return csjh7OhLe86(i, i2);
+    }
+
+    public byte[] getServerPK(int i, int i2) {
+        return g7673Shg3P9(i, i2);
+    }
+
+    public int clientSecretGen(ByteArray bArr, byte[] bArr2, int i, ByteArray bArr3) {
+        return c789Sju7G87(bArr, bArr2, i, bArr3);
     }
 
     public byte[] encode(byte[] data, byte[] key) {
