@@ -3,6 +3,7 @@ package com.immomo.momo.emulator;
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.linux.android.dvm.VM;
 import com.github.unidbg.linux.android.dvm.DvmClass;
+import com.github.unidbg.linux.android.dvm.array.ByteArray;
 
 public class ApkLoader {
 

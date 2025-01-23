@@ -22,8 +22,8 @@ public class SoCoded {
         return dvmClass.callStaticJniMethodInt(emulator, "csjh7OhLe86(II)I", i, i2);
     }
 
-    private int c789Sju7G87(ByteArray bArr, byte[] bArr2, int i, ByteArray bArr3) {
-        return dvmClass.callStaticJniMethodInt(emulator, "c789Sju7G87([B[BI[B)I", bArr, bArr2, i, bArr3);
+    private void c789Sju7G87(ByteArray bArr, byte[] bArr2, int i, ByteArray bArr3) {
+        dvmClass.callStaticJniMethodInt(emulator, "c789Sju7G87([B[BI[B)I", bArr, bArr2, i, bArr3);
     }
 
     private byte[] g7673Shg3P9(int i, int i2) {
@@ -62,8 +62,8 @@ public class SoCoded {
         return g7673Shg3P9(i, i2);
     }
 
-    public int clientSecretGen(ByteArray bArr, byte[] bArr2, int i, ByteArray bArr3) {
-        return c789Sju7G87(bArr, bArr2, i, bArr3);
+    public void clientSecretGen(ByteArray bArr, byte[] bArr2, int i, ByteArray bArr3) {
+        c789Sju7G87(bArr, bArr2, i, bArr3);
     }
 
     public byte[] encode(byte[] data, byte[] key) {
@@ -92,4 +92,5 @@ public class SoCoded {
         byte[] bytes = new byte[size];
         return new ByteArray(vm, bytes);
     }
+
 }
