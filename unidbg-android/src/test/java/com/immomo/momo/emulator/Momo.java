@@ -1,7 +1,7 @@
 package com.immomo.momo.emulator;
 
 import com.github.unidbg.linux.android.dvm.VM;
-import com.github.unidbg.linux.android.dvm.array.ByteArray;
+
 
 public class Momo extends BaseApk {
 

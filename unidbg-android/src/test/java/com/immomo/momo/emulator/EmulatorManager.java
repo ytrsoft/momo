@@ -1,6 +1,7 @@
 package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.arm.backend.Backend;
 import com.github.unidbg.arm.backend.Unicorn2Factory;
 import com.github.unidbg.linux.android.AndroidEmulatorBuilder;
 import com.github.unidbg.linux.android.AndroidResolver;

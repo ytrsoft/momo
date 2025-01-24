@@ -1,6 +1,7 @@
 package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.linux.android.dvm.DalvikModule;
 import com.github.unidbg.linux.android.dvm.VM;
 
 import java.io.File;
@@ -53,11 +54,17 @@ public class Resource {
         this.libmmssl = libmmssl;
     }
 
-    public void jniLoad(AndroidEmulator emulator, VM vm) {
-        vm.loadLibrary(libmmcrypto, false).callJNI_OnLoad(emulator);
-        vm.loadLibrary(libmmssl, false).callJNI_OnLoad(emulator);
-        vm.loadLibrary(libcoded, false).callJNI_OnLoad(emulator);
-        vm.loadLibrary(libcoded_jni, false).callJNI_OnLoad(emulator);
+
+    public DalvikModule[] jniLoad(AndroidEmulator emulator, VM vm) {
+        DalvikModule module0 = vm.loadLibrary(libmmcrypto, false);
+        module0.callJNI_OnLoad(emulator);
+        DalvikModule module1 = vm.loadLibrary(libmmssl, false);
+        module1.callJNI_OnLoad(emulator);
+        DalvikModule module2 = vm.loadLibrary(libcoded, false);
+        module2.callJNI_OnLoad(emulator);
+        DalvikModule module3 = vm.loadLibrary(libcoded_jni, false);
+        module3.callJNI_OnLoad(emulator);
+        return new DalvikModule[]{module0, module1, module2, module3};
     }
 
 }

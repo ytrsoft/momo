@@ -1,6 +1,7 @@
 package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.linux.android.dvm.DalvikModule;
 import com.github.unidbg.linux.android.dvm.VM;
 import com.github.unidbg.linux.android.dvm.DvmClass;
 import com.github.unidbg.linux.android.dvm.array.ByteArray;
@@ -11,6 +12,7 @@ public class ApkLoader {
     private DvmClass dvmClass;
     private final EmulatorManager emulatorManager;
     private final Resource resource;
+    private DalvikModule[] modules;
 
     public ApkLoader(EmulatorManager emulatorManager, Resource resource) {
         this.emulatorManager = emulatorManager;
@@ -19,10 +21,9 @@ public class ApkLoader {
 
     public void loadApk(boolean verbose) {
         vm = emulatorManager.getEmulator().createDalvikVM(resource.getApk());
-        System.out.println(resource.getApk().getAbsolutePath());
         vm.setVerbose(verbose);
         AndroidEmulator emulator = emulatorManager.getEmulator();
-        resource.jniLoad(emulator, vm);
+        modules = resource.jniLoad(emulator, vm);
     }
 
     public DvmClass loadDvmClass(String classPath) {
@@ -41,5 +42,9 @@ public class ApkLoader {
 
     public void close() {
         emulatorManager.close();
+    }
+
+    public DalvikModule[] getDalvikModule() {
+        return modules;
     }
 }
