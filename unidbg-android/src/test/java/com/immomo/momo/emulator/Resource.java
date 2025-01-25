@@ -1,6 +1,9 @@
 package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
+import com.github.unidbg.Module;
+import com.github.unidbg.arm.context.RegisterContext;
+import com.github.unidbg.debugger.Debugger;
 import com.github.unidbg.linux.android.dvm.DalvikModule;
 import com.github.unidbg.linux.android.dvm.VM;
 
@@ -54,6 +57,18 @@ public class Resource {
         this.libmmssl = libmmssl;
     }
 
+    public void testHook(AndroidEmulator emulator, Module module) {
+        Breakpoint breakpoint = new Breakpoint(emulator, module);
+        breakpoint.setBreakpointCallback((debugger, context) -> {
+            System.out.println("onHook");
+            long peer = context.getLRPointer().peer;
+            breakpoint.nextBreakpoint(debugger, peer, (debugger1, context1) -> {
+                System.out.println("onReturn");
+            });
+        });
+        breakpoint.addBreakpoint("keyGen");
+    }
+
 
     public DalvikModule[] jniLoad(AndroidEmulator emulator, VM vm) {
         DalvikModule module0 = vm.loadLibrary(libmmcrypto, false);
@@ -61,10 +76,11 @@ public class Resource {
         DalvikModule module1 = vm.loadLibrary(libmmssl, false);
         module1.callJNI_OnLoad(emulator);
         DalvikModule module2 = vm.loadLibrary(libcoded, false);
+        Module module = module2.getModule();
+        testHook(emulator, module);
         module2.callJNI_OnLoad(emulator);
         DalvikModule module3 = vm.loadLibrary(libcoded_jni, false);
         module3.callJNI_OnLoad(emulator);
         return new DalvikModule[]{module0, module1, module2, module3};
     }
-
 }
