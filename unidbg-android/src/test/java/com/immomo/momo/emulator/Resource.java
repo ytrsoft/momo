@@ -1,22 +1,18 @@
 package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
-import com.github.unidbg.Module;
-import com.github.unidbg.arm.context.RegisterContext;
-import com.github.unidbg.debugger.Debugger;
 import com.github.unidbg.linux.android.dvm.DalvikModule;
 import com.github.unidbg.linux.android.dvm.VM;
 
 import java.io.File;
 
-public class Resource implements Breakpoint.Hook, Breakpoint.Leave {
+public class Resource {
 
     private File apk;
     private File libcoded;
     private File libcoded_jni;
     private File libmmcrypto;
     private File libmmssl;
-    private Breakpoint breakpoint;
 
     public File getApk() {
         return apk;
@@ -64,29 +60,9 @@ public class Resource implements Breakpoint.Hook, Breakpoint.Leave {
         DalvikModule module1 = vm.loadLibrary(libmmssl, false);
         module1.callJNI_OnLoad(emulator);
         DalvikModule module2 = vm.loadLibrary(libcoded, false);
-        Module module = module2.getModule();
-        testHook(emulator, module);
         module2.callJNI_OnLoad(emulator);
         DalvikModule module3 = vm.loadLibrary(libcoded_jni, false);
         module3.callJNI_OnLoad(emulator);
         return new DalvikModule[]{module0, module1, module2, module3};
-    }
-
-    public void testHook(AndroidEmulator emulator, Module module) {
-        breakpoint = new Breakpoint(emulator, module);
-        breakpoint.setOnLeave(this);
-        breakpoint.setOnHook(this);
-        breakpoint.register("clientSecretGen");
-    }
-
-    @Override
-    public void onHook(Debugger debugger, RegisterContext context) {
-        breakpoint.next(debugger, context);
-    }
-
-    @Override
-    public void onLeave(RegisterContext context) {
-        int ret = context.getLRPointer().getInt(0);
-        System.out.println(ret);
     }
 }
