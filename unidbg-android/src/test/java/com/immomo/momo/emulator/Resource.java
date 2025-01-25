@@ -2,12 +2,16 @@ package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.Module;
+import com.github.unidbg.PointerArg;
 import com.github.unidbg.arm.context.RegisterContext;
 import com.github.unidbg.debugger.Debugger;
 import com.github.unidbg.linux.android.dvm.DalvikModule;
 import com.github.unidbg.linux.android.dvm.VM;
+import com.github.unidbg.pointer.UnidbgPointer;
+import com.sun.jna.Pointer;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class Resource {
 
@@ -59,14 +63,16 @@ public class Resource {
 
     public void testHook(AndroidEmulator emulator, Module module) {
         Breakpoint breakpoint = new Breakpoint(emulator, module);
-        breakpoint.setBreakpointCallback((debugger, context) -> {
-            System.out.println("onHook");
-            long peer = context.getLRPointer().peer;
-            breakpoint.nextBreakpoint(debugger, peer, (debugger1, context1) -> {
-                System.out.println("onReturn");
-            });
+        breakpoint.setOnLeave(context -> {
+            System.out.println("onLeave 1");
+            System.out.println("onLeave 2");
         });
-        breakpoint.addBreakpoint("keyGen");
+        breakpoint.setOnHook((debugger, context) -> {
+            System.out.println("onHook 1");
+            System.out.println("onHook 2");
+            breakpoint.next(debugger, context);
+        });
+        breakpoint.register("getGroup");
     }
 
 
