@@ -4,10 +4,6 @@ import com.github.unidbg.linux.android.dvm.array.ByteArray;
 import com.immomo.momo.emulator.Momo;
 import com.immomo.momo.emulator.SoCoded;
 
-import javax.crypto.KeyAgreement;
-import java.security.*;
-import java.security.spec.ECGenParameterSpec;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.Arrays;
 
 public class KeyGen {
