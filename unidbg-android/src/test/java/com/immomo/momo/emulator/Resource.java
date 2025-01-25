@@ -2,16 +2,10 @@ package com.immomo.momo.emulator;
 
 import com.github.unidbg.AndroidEmulator;
 import com.github.unidbg.Module;
-import com.github.unidbg.PointerArg;
-import com.github.unidbg.arm.context.RegisterContext;
-import com.github.unidbg.debugger.Debugger;
 import com.github.unidbg.linux.android.dvm.DalvikModule;
 import com.github.unidbg.linux.android.dvm.VM;
-import com.github.unidbg.pointer.UnidbgPointer;
-import com.sun.jna.Pointer;
 
 import java.io.File;
-import java.util.Arrays;
 
 public class Resource {
 
