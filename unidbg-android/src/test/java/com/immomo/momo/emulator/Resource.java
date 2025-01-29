@@ -13,6 +13,7 @@ public class Resource {
     private File libcoded_jni;
     private File libmmcrypto;
     private File libmmssl;
+    private Breakpoint bp;
 
     public File getApk() {
         return apk;
